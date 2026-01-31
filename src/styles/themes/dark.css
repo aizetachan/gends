@@ -70,4 +70,24 @@
     --sg-color-focus-ring: rgba(59, 130, 246, 0.5);
     --sg-color-disabled-bg: rgba(255, 255, 255, 0.05);
     --sg-color-disabled-text: #52525b;
+
+    /* ===== TOOLTIP ===== */
+    --sg-color-bg-tooltip: #18181b;
+    --sg-color-text-tooltip: #fafafa;
+
+    /* ===== EXTENDED COLORS (Folder markers, tags, etc.) ===== */
+    --sg-color-blue: #3b82f6;
+    --sg-color-blue-bg: rgba(59, 130, 246, 0.1);
+    --sg-color-green: #22c55e;
+    --sg-color-green-bg: rgba(34, 197, 94, 0.1);
+    --sg-color-purple: #8b5cf6;
+    --sg-color-purple-bg: rgba(139, 92, 246, 0.1);
+    --sg-color-orange: #f97316;
+    --sg-color-orange-bg: rgba(249, 115, 22, 0.1);
+    --sg-color-red: #ef4444;
+    --sg-color-red-bg: rgba(239, 68, 68, 0.1);
+    --sg-color-yellow: #eab308;
+    --sg-color-yellow-bg: rgba(234, 179, 8, 0.1);
+    --sg-color-pink: #ec4899;
+    --sg-color-pink-bg: rgba(236, 72, 153, 0.1);
 }
