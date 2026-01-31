@@ -1,0 +1,152 @@
+/* =====================================================
+   Checkbox Component Styles
+   ===================================================== */
+
+.wrapper {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: var(--sg-space-2);
+    cursor: pointer;
+}
+
+.wrapper.disabled {
+    cursor: not-allowed;
+    opacity: var(--sg-opacity-disabled);
+}
+
+/* ===== CHECKBOX BOX ===== */
+
+.checkbox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    background-color: var(--sg-color-bg-secondary);
+    border: 2px solid var(--sg-color-border-default);
+    border-radius: var(--sg-radius-base);
+
+    transition:
+        background-color var(--sg-duration-fast) var(--sg-ease-default),
+        border-color var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+/* Sizes */
+.sm .checkbox {
+    width: 16px;
+    height: 16px;
+}
+
+.md .checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+.lg .checkbox {
+    width: 24px;
+    height: 24px;
+}
+
+/* Hover */
+.wrapper:hover:not(.disabled) .checkbox {
+    border-color: var(--sg-color-border-hover);
+}
+
+/* Focus */
+.wrapper:focus-within .checkbox {
+    box-shadow: 0 0 0 3px var(--sg-color-focus-ring);
+}
+
+/* Checked */
+.checked .checkbox {
+    background-color: var(--sg-color-accent);
+    border-color: var(--sg-color-accent);
+}
+
+.checked:hover:not(.disabled) .checkbox {
+    background-color: var(--sg-color-accent-hover);
+    border-color: var(--sg-color-accent-hover);
+}
+
+/* Indeterminate */
+.indeterminate .checkbox {
+    background-color: var(--sg-color-accent);
+    border-color: var(--sg-color-accent);
+}
+
+/* Error */
+.error .checkbox {
+    border-color: var(--sg-color-error);
+}
+
+/* ===== CHECKMARK ICON ===== */
+
+.icon {
+    color: white;
+    opacity: 0;
+    transition: opacity var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+.checked .icon,
+.indeterminate .icon {
+    opacity: 1;
+}
+
+.sm .icon {
+    width: 12px;
+    height: 12px;
+}
+
+.md .icon {
+    width: 14px;
+    height: 14px;
+}
+
+.lg .icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* ===== HIDDEN INPUT ===== */
+
+.hiddenInput {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+/* ===== CONTENT ===== */
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sg-space-0-5);
+}
+
+.label {
+    font-size: var(--sg-font-size-sm);
+    font-weight: var(--sg-font-weight-medium);
+    color: var(--sg-color-text-primary);
+    line-height: var(--sg-line-height-tight);
+}
+
+.helperText {
+    font-size: var(--sg-font-size-xs);
+    color: var(--sg-color-text-muted);
+}
+
+.error .helperText {
+    color: var(--sg-color-error-text);
+}
+
+/* Size adjustments for content */
+.sm .label {
+    font-size: var(--sg-font-size-xs);
+}
+
+.lg .label {
+    font-size: var(--sg-font-size-base);
+}

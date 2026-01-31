@@ -1,0 +1,162 @@
+/* =====================================================
+   Tabs Component Styles
+   ===================================================== */
+
+.tabs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* ===== TAB LIST ===== */
+
+.tabList {
+    display: flex;
+    gap: var(--sg-space-1);
+    border-bottom: 1px solid var(--sg-color-border-default);
+}
+
+.tabListPills {
+    border-bottom: none;
+    gap: var(--sg-space-2);
+}
+
+.tabListUnderline {
+    gap: 0;
+}
+
+/* ===== TAB BUTTON ===== */
+
+.tab {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--sg-space-2);
+
+    padding: var(--sg-space-2) var(--sg-space-4);
+
+    font-family: var(--sg-font-family);
+    font-size: var(--sg-font-size-sm);
+    font-weight: var(--sg-font-weight-medium);
+
+    color: var(--sg-color-text-secondary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    transition:
+        color var(--sg-duration-fast) var(--sg-ease-default),
+        background-color var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+.tab:hover {
+    color: var(--sg-color-text-primary);
+}
+
+.tab:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--sg-color-focus-ring);
+    border-radius: var(--sg-radius-md);
+}
+
+/* Active tab */
+.tabActive {
+    color: var(--sg-color-text-primary);
+}
+
+/* Disabled tab */
+.tab:disabled {
+    opacity: var(--sg-opacity-disabled);
+    cursor: not-allowed;
+}
+
+/* ===== DEFAULT VARIANT ===== */
+
+.tabDefault::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+.tabDefault.tabActive::after {
+    background-color: var(--sg-color-accent);
+}
+
+/* ===== PILLS VARIANT ===== */
+
+.tabPills {
+    border-radius: var(--sg-radius-md);
+}
+
+.tabPills:hover {
+    background-color: var(--sg-color-hover);
+}
+
+.tabPills.tabActive {
+    background-color: var(--sg-color-bg-elevated);
+    color: var(--sg-color-text-primary);
+}
+
+/* ===== UNDERLINE VARIANT ===== */
+
+.tabUnderline {
+    padding: var(--sg-space-3) var(--sg-space-4);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+}
+
+.tabUnderline:hover {
+    border-bottom-color: var(--sg-color-border-hover);
+}
+
+.tabUnderline.tabActive {
+    border-bottom-color: var(--sg-color-accent);
+}
+
+/* ===== TAB PANEL ===== */
+
+.tabPanel {
+    padding: var(--sg-space-4) 0;
+}
+
+.tabPanelHidden {
+    display: none;
+}
+
+/* ===== TAB ICON ===== */
+
+.tabIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+}
+
+/* ===== TAB BADGE ===== */
+
+.tabBadge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 var(--sg-space-1);
+
+    font-size: 11px;
+    font-weight: var(--sg-font-weight-semibold);
+
+    background-color: var(--sg-color-bg-elevated);
+    color: var(--sg-color-text-secondary);
+    border-radius: var(--sg-radius-full);
+}
+
+.tabActive .tabBadge {
+    background-color: var(--sg-color-accent);
+    color: white;
+}

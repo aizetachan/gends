@@ -1,0 +1,137 @@
+/* =====================================================
+   Toggle/Switch Component Styles
+   ===================================================== */
+
+.wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sg-space-2);
+    cursor: pointer;
+}
+
+.wrapper.disabled {
+    cursor: not-allowed;
+    opacity: var(--sg-opacity-disabled);
+}
+
+/* ===== TRACK ===== */
+
+.track {
+    position: relative;
+    flex-shrink: 0;
+
+    background-color: var(--sg-color-bg-elevated);
+    border-radius: var(--sg-radius-full);
+
+    transition: background-color var(--sg-duration-base) var(--sg-ease-default);
+}
+
+/* Sizes */
+.sm .track {
+    width: 32px;
+    height: 18px;
+}
+
+.md .track {
+    width: 40px;
+    height: 22px;
+}
+
+.lg .track {
+    width: 48px;
+    height: 26px;
+}
+
+/* Hover */
+.wrapper:hover:not(.disabled) .track {
+    background-color: var(--sg-color-active);
+}
+
+/* Focus */
+.wrapper:focus-within .track {
+    box-shadow: 0 0 0 3px var(--sg-color-focus-ring);
+}
+
+/* Checked */
+.checked .track {
+    background-color: var(--sg-color-accent);
+}
+
+.checked:hover:not(.disabled) .track {
+    background-color: var(--sg-color-accent-hover);
+}
+
+/* ===== THUMB ===== */
+
+.thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+
+    background-color: white;
+    border-radius: var(--sg-radius-full);
+    box-shadow: var(--sg-shadow-sm);
+
+    transition: transform var(--sg-duration-base) var(--sg-ease-default);
+}
+
+/* Sizes */
+.sm .thumb {
+    width: 14px;
+    height: 14px;
+}
+
+.md .thumb {
+    width: 18px;
+    height: 18px;
+}
+
+.lg .thumb {
+    width: 22px;
+    height: 22px;
+}
+
+/* Checked position */
+.sm.checked .thumb {
+    transform: translateX(14px);
+}
+
+.md.checked .thumb {
+    transform: translateX(18px);
+}
+
+.lg.checked .thumb {
+    transform: translateX(22px);
+}
+
+/* ===== HIDDEN INPUT ===== */
+
+.hiddenInput {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+/* ===== LABEL ===== */
+
+.label {
+    font-size: var(--sg-font-size-sm);
+    font-weight: var(--sg-font-weight-medium);
+    color: var(--sg-color-text-primary);
+}
+
+.sm .label {
+    font-size: var(--sg-font-size-xs);
+}
+
+.lg .label {
+    font-size: var(--sg-font-size-base);
+}
+
+/* ===== LABEL POSITION ===== */
+
+.labelLeft {
+    flex-direction: row-reverse;
+}

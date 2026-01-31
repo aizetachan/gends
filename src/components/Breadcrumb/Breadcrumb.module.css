@@ -1,0 +1,123 @@
+/* =====================================================
+   Breadcrumb Component Styles
+   ===================================================== */
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--sg-space-1);
+
+    font-size: var(--sg-font-size-sm);
+}
+
+/* ===== ITEM ===== */
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: var(--sg-space-1);
+}
+
+.link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sg-space-1);
+
+    color: var(--sg-color-text-secondary);
+    text-decoration: none;
+
+    padding: var(--sg-space-0-5) var(--sg-space-1);
+    margin: calc(-1 * var(--sg-space-0-5)) calc(-1 * var(--sg-space-1));
+
+    border-radius: var(--sg-radius-md);
+
+    transition:
+        color var(--sg-duration-fast) var(--sg-ease-default),
+        background-color var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+.link:hover {
+    color: var(--sg-color-text-primary);
+    background-color: var(--sg-color-hover);
+}
+
+.link:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--sg-color-focus-ring);
+}
+
+/* Current/active item */
+.current {
+    color: var(--sg-color-text-primary);
+    font-weight: var(--sg-font-weight-medium);
+}
+
+.current .link {
+    color: var(--sg-color-text-primary);
+    cursor: default;
+}
+
+.current .link:hover {
+    background-color: transparent;
+}
+
+/* ===== SEPARATOR ===== */
+
+.separator {
+    display: flex;
+    align-items: center;
+    color: var(--sg-color-text-muted);
+}
+
+.separator svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* ===== ICON ===== */
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+}
+
+/* ===== TRUNCATED ===== */
+
+.ellipsis {
+    display: flex;
+    align-items: center;
+    padding: var(--sg-space-0-5) var(--sg-space-1);
+
+    color: var(--sg-color-text-muted);
+    background: transparent;
+    border: none;
+    border-radius: var(--sg-radius-md);
+    cursor: pointer;
+
+    transition:
+        color var(--sg-duration-fast) var(--sg-ease-default),
+        background-color var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+.ellipsis:hover {
+    color: var(--sg-color-text-primary);
+    background-color: var(--sg-color-hover);
+}
+
+/* ===== SIZES ===== */
+
+.sm {
+    font-size: var(--sg-font-size-xs);
+}
+
+.md {
+    font-size: var(--sg-font-size-sm);
+}
+
+.lg {
+    font-size: var(--sg-font-size-base);
+}

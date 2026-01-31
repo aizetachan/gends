@@ -1,0 +1,201 @@
+/* =====================================================
+   ToolBar Component Styles
+   ===================================================== */
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: var(--sg-space-1);
+
+    padding: var(--sg-space-1);
+
+    background-color: var(--sg-color-bg-secondary);
+    border: 1px solid var(--sg-color-border-default);
+    border-radius: var(--sg-radius-xl);
+}
+
+/* ===== VARIANTS ===== */
+
+.floating {
+    position: fixed;
+    z-index: var(--sg-z-toolbar, 35);
+    box-shadow: var(--sg-shadow-lg);
+}
+
+.inline {
+    display: inline-flex;
+}
+
+/* ===== POSITIONS ===== */
+
+.positionTop {
+    top: var(--sg-space-4);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.positionBottom {
+    bottom: var(--sg-space-4);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.positionLeft {
+    left: var(--sg-space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+}
+
+.positionRight {
+    right: var(--sg-space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+}
+
+/* ===== TOOL BUTTON ===== */
+
+.toolButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    background: transparent;
+    border: none;
+    border-radius: var(--sg-radius-lg);
+    color: var(--sg-color-text-secondary);
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--sg-duration-fast) var(--sg-ease-default),
+        color var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+.toolButton:hover:not(:disabled) {
+    background-color: var(--sg-color-hover);
+    color: var(--sg-color-text-primary);
+}
+
+.toolButton:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--sg-color-focus-ring);
+}
+
+.toolButton:disabled {
+    opacity: var(--sg-opacity-disabled);
+    cursor: not-allowed;
+}
+
+.toolButtonActive {
+    background-color: var(--sg-color-accent);
+    color: white;
+}
+
+.toolButtonActive:hover:not(:disabled) {
+    background-color: var(--sg-color-accent-hover);
+    color: white;
+}
+
+/* ===== TOOL BUTTON ICON ===== */
+
+.toolButtonIcon {
+    width: 20px;
+    height: 20px;
+}
+
+/* ===== SIZES ===== */
+
+.sm .toolButton {
+    width: 32px;
+    height: 32px;
+}
+
+.sm .toolButtonIcon {
+    width: 16px;
+    height: 16px;
+}
+
+.lg .toolButton {
+    width: 44px;
+    height: 44px;
+}
+
+.lg .toolButtonIcon {
+    width: 24px;
+    height: 24px;
+}
+
+/* ===== DIVIDER ===== */
+
+.divider {
+    width: 1px;
+    height: 24px;
+    margin: 0 var(--sg-space-1);
+    background-color: var(--sg-color-border-default);
+}
+
+.positionLeft .divider,
+.positionRight .divider {
+    width: 24px;
+    height: 1px;
+    margin: var(--sg-space-1) 0;
+}
+
+/* ===== GROUP ===== */
+
+.group {
+    display: flex;
+    align-items: center;
+    gap: var(--sg-space-0-5);
+}
+
+.positionLeft .group,
+.positionRight .group {
+    flex-direction: column;
+}
+
+/* ===== TOOLTIP CONTAINER ===== */
+
+.tooltipWrapper {
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    z-index: 10;
+
+    padding: var(--sg-space-1) var(--sg-space-2);
+
+    font-size: var(--sg-font-size-xs);
+    white-space: nowrap;
+
+    background-color: var(--sg-color-bg-inverted);
+    color: var(--sg-color-text-inverted);
+    border-radius: var(--sg-radius-md);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+.tooltipWrapper:hover .tooltip {
+    opacity: 1;
+}
+
+.tooltipBottom {
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tooltipRight {
+    left: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%);
+}

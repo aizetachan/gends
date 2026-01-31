@@ -1,0 +1,114 @@
+/* =====================================================
+   AlertDialog Component Styles
+   ===================================================== */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: var(--sg-z-modal, 80);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--sg-space-4);
+
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+
+    animation: overlayFadeIn var(--sg-duration-base) var(--sg-ease-out);
+}
+
+@keyframes overlayFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.dialog {
+    width: 100%;
+    max-width: 400px;
+    padding: var(--sg-space-6);
+
+    background-color: var(--sg-color-bg-secondary);
+    border: 1px solid var(--sg-color-border-default);
+    border-radius: var(--sg-radius-xl);
+    box-shadow: var(--sg-shadow-xl);
+
+    animation: dialogSlideIn var(--sg-duration-base) var(--sg-ease-out);
+}
+
+@keyframes dialogSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ===== ICON ===== */
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--sg-space-4);
+    border-radius: var(--sg-radius-full);
+}
+
+.iconDanger {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--sg-color-error);
+}
+
+.iconWarning {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: var(--sg-color-warning);
+}
+
+.iconInfo {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--sg-color-info);
+}
+
+/* ===== CONTENT ===== */
+
+.title {
+    font-size: var(--sg-font-size-lg);
+    font-weight: var(--sg-font-weight-semibold);
+    color: var(--sg-color-text-primary);
+    margin: 0 0 var(--sg-space-2);
+}
+
+.description {
+    font-size: var(--sg-font-size-sm);
+    color: var(--sg-color-text-secondary);
+    line-height: var(--sg-line-height-normal);
+    margin: 0;
+}
+
+/* ===== ACTIONS ===== */
+
+.actions {
+    display: flex;
+    gap: var(--sg-space-3);
+    margin-top: var(--sg-space-6);
+}
+
+.actionsStacked {
+    flex-direction: column;
+}
+
+.actionsInline {
+    flex-direction: row;
+    justify-content: flex-end;
+}

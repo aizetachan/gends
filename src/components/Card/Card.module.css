@@ -1,0 +1,159 @@
+/* =====================================================
+   Card Component Styles
+   ===================================================== */
+
+.card {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--sg-color-bg-secondary);
+    border-radius: var(--sg-radius-xl);
+
+    overflow: hidden;
+}
+
+/* ===== VARIANTS ===== */
+
+.default {
+    border: 1px solid var(--sg-color-border-default);
+}
+
+.outlined {
+    border: 1px solid var(--sg-color-border-default);
+    background-color: transparent;
+}
+
+.elevated {
+    border: none;
+    box-shadow: var(--sg-shadow-lg);
+}
+
+.ghost {
+    border: none;
+    background-color: transparent;
+}
+
+/* ===== INTERACTIVE ===== */
+
+.interactive {
+    cursor: pointer;
+    transition:
+        transform var(--sg-duration-base) var(--sg-ease-default),
+        box-shadow var(--sg-duration-base) var(--sg-ease-default),
+        border-color var(--sg-duration-base) var(--sg-ease-default);
+}
+
+.interactive:hover {
+    border-color: var(--sg-color-border-hover);
+}
+
+.interactive.elevated:hover {
+    box-shadow: var(--sg-shadow-xl);
+    transform: translateY(-2px);
+}
+
+.interactive:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--sg-color-focus-ring);
+}
+
+/* ===== SELECTED ===== */
+
+.selected {
+    border-color: var(--sg-color-accent);
+    box-shadow: 0 0 0 1px var(--sg-color-accent);
+}
+
+/* ===== PADDING ===== */
+
+.paddingNone {
+    padding: 0;
+}
+
+.paddingSm {
+    padding: var(--sg-space-3);
+}
+
+.paddingMd {
+    padding: var(--sg-space-4);
+}
+
+.paddingLg {
+    padding: var(--sg-space-6);
+}
+
+/* ===== CARD HEADER ===== */
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--sg-space-3);
+    padding: var(--sg-space-4);
+    border-bottom: 1px solid var(--sg-color-border-default);
+}
+
+.headerContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sg-space-1);
+}
+
+.title {
+    font-size: var(--sg-font-size-base);
+    font-weight: var(--sg-font-weight-semibold);
+    color: var(--sg-color-text-primary);
+    margin: 0;
+}
+
+.subtitle {
+    font-size: var(--sg-font-size-sm);
+    color: var(--sg-color-text-secondary);
+    margin: 0;
+}
+
+.headerAction {
+    flex-shrink: 0;
+}
+
+/* ===== CARD BODY ===== */
+
+.body {
+    flex: 1;
+    padding: var(--sg-space-4);
+}
+
+/* ===== CARD FOOTER ===== */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--sg-space-2);
+    padding: var(--sg-space-4);
+    border-top: 1px solid var(--sg-color-border-default);
+}
+
+.footerLeft {
+    justify-content: flex-start;
+}
+
+.footerCenter {
+    justify-content: center;
+}
+
+.footerSpaceBetween {
+    justify-content: space-between;
+}
+
+/* ===== CARD IMAGE ===== */
+
+.image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.imageTop {
+    border-radius: var(--sg-radius-xl) var(--sg-radius-xl) 0 0;
+}

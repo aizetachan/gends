@@ -1,0 +1,73 @@
+/* =====================================================
+   GenDS - Dark Theme (Default)
+   ===================================================== */
+
+:root,
+[data-theme="dark"] {
+    /* ===== BACKGROUNDS ===== */
+    --sg-color-bg-primary: #09090b;
+    --sg-color-bg-secondary: #18181b;
+    --sg-color-bg-tertiary: #27272a;
+    --sg-color-bg-elevated: #3f3f46;
+    --sg-color-bg-inverse: #ffffff;
+    --sg-color-bg-overlay: rgba(0, 0, 0, 0.8);
+    --sg-color-bg-backdrop: rgba(0, 0, 0, 0.5);
+
+    /* ===== TEXT ===== */
+    --sg-color-text-primary: #fafafa;
+    --sg-color-text-secondary: #a1a1aa;
+    --sg-color-text-muted: #52525b;
+    --sg-color-text-inverse: #09090b;
+    --sg-color-text-link: #60a5fa;
+    --sg-color-text-link-hover: #93c5fd;
+
+    /* ===== BORDERS ===== */
+    --sg-color-border-default: rgba(255, 255, 255, 0.1);
+    --sg-color-border-hover: rgba(255, 255, 255, 0.2);
+    --sg-color-border-focus: #3b82f6;
+    --sg-color-border-error: #ef4444;
+    --sg-color-border-success: #22c55e;
+
+    /* ===== ACCENT (Brand) ===== */
+    --sg-color-accent: #A53F35;
+    --sg-color-accent-hover: #8B3529;
+    --sg-color-accent-active: #722C21;
+    --sg-color-accent-subtle: rgba(165, 63, 53, 0.1);
+    --sg-color-accent-text: #ffffff;
+
+    /* ===== STATUS: SUCCESS ===== */
+    --sg-color-success: #22c55e;
+    --sg-color-success-hover: #16a34a;
+    --sg-color-success-bg: rgba(34, 197, 94, 0.1);
+    --sg-color-success-border: rgba(34, 197, 94, 0.3);
+    --sg-color-success-text: #4ade80;
+
+    /* ===== STATUS: ERROR ===== */
+    --sg-color-error: #ef4444;
+    --sg-color-error-hover: #dc2626;
+    --sg-color-error-bg: rgba(239, 68, 68, 0.1);
+    --sg-color-error-border: rgba(239, 68, 68, 0.3);
+    --sg-color-error-text: #f87171;
+
+    /* ===== STATUS: WARNING ===== */
+    --sg-color-warning: #eab308;
+    --sg-color-warning-hover: #ca8a04;
+    --sg-color-warning-bg: rgba(234, 179, 8, 0.1);
+    --sg-color-warning-border: rgba(234, 179, 8, 0.3);
+    --sg-color-warning-text: #facc15;
+
+    /* ===== STATUS: INFO ===== */
+    --sg-color-info: #3b82f6;
+    --sg-color-info-hover: #2563eb;
+    --sg-color-info-bg: rgba(59, 130, 246, 0.1);
+    --sg-color-info-border: rgba(59, 130, 246, 0.3);
+    --sg-color-info-text: #60a5fa;
+
+    /* ===== INTERACTIVE STATES ===== */
+    --sg-color-hover: rgba(255, 255, 255, 0.05);
+    --sg-color-active: rgba(255, 255, 255, 0.1);
+    --sg-color-selected: rgba(255, 255, 255, 0.15);
+    --sg-color-focus-ring: rgba(59, 130, 246, 0.5);
+    --sg-color-disabled-bg: rgba(255, 255, 255, 0.05);
+    --sg-color-disabled-text: #52525b;
+}

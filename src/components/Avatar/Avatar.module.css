@@ -1,0 +1,210 @@
+/* =====================================================
+   Avatar Component Styles
+   ===================================================== */
+
+.avatar {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    background-color: var(--sg-color-bg-elevated);
+    color: var(--sg-color-text-secondary);
+    border-radius: var(--sg-radius-full);
+
+    overflow: hidden;
+    user-select: none;
+}
+
+/* ===== SIZES ===== */
+
+.xs {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+}
+
+.sm {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+}
+
+.md {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+}
+
+.lg {
+    width: 48px;
+    height: 48px;
+    font-size: 16px;
+}
+
+.xl {
+    width: 64px;
+    height: 64px;
+    font-size: 20px;
+}
+
+.xxl {
+    width: 96px;
+    height: 96px;
+    font-size: 28px;
+}
+
+/* ===== IMAGE ===== */
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== INITIALS ===== */
+
+.initials {
+    font-weight: var(--sg-font-weight-semibold);
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+/* ===== FALLBACK ICON ===== */
+
+.fallbackIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.xs .fallbackIcon svg {
+    width: 14px;
+    height: 14px;
+}
+
+.sm .fallbackIcon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.md .fallbackIcon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.lg .fallbackIcon svg {
+    width: 26px;
+    height: 26px;
+}
+
+.xl .fallbackIcon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.xxl .fallbackIcon svg {
+    width: 48px;
+    height: 48px;
+}
+
+/* ===== STATUS INDICATOR ===== */
+
+.status {
+    position: absolute;
+    border: 2px solid var(--sg-color-bg-secondary);
+    border-radius: var(--sg-radius-full);
+}
+
+.xs .status {
+    width: 8px;
+    height: 8px;
+    bottom: -1px;
+    right: -1px;
+}
+
+.sm .status {
+    width: 10px;
+    height: 10px;
+    bottom: 0;
+    right: 0;
+}
+
+.md .status {
+    width: 12px;
+    height: 12px;
+    bottom: 0;
+    right: 0;
+}
+
+.lg .status {
+    width: 14px;
+    height: 14px;
+    bottom: 1px;
+    right: 1px;
+}
+
+.xl .status {
+    width: 16px;
+    height: 16px;
+    bottom: 2px;
+    right: 2px;
+}
+
+.xxl .status {
+    width: 20px;
+    height: 20px;
+    bottom: 4px;
+    right: 4px;
+}
+
+.statusOnline {
+    background-color: var(--sg-color-success);
+}
+
+.statusOffline {
+    background-color: var(--sg-color-text-muted);
+}
+
+.statusBusy {
+    background-color: var(--sg-color-error);
+}
+
+.statusAway {
+    background-color: var(--sg-color-warning);
+}
+
+/* ===== SHAPES ===== */
+
+.square {
+    border-radius: var(--sg-radius-lg);
+}
+
+/* ===== AVATAR STACK ===== */
+
+.stack {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.stackItem {
+    margin-left: -8px;
+    border: 2px solid var(--sg-color-bg-secondary);
+    box-sizing: content-box;
+}
+
+.stackItem:last-child {
+    margin-left: 0;
+}
+
+.stackCount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--sg-color-bg-tertiary);
+    color: var(--sg-color-text-secondary);
+    font-weight: var(--sg-font-weight-semibold);
+}

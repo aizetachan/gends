@@ -1,0 +1,148 @@
+/* =====================================================
+   Slider Component Styles
+   ===================================================== */
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sg-space-2);
+    width: 100%;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--sg-font-size-sm);
+    font-weight: var(--sg-font-weight-medium);
+    color: var(--sg-color-text-primary);
+}
+
+.value {
+    font-size: var(--sg-font-size-sm);
+    color: var(--sg-color-text-secondary);
+    font-variant-numeric: tabular-nums;
+}
+
+/* ===== SLIDER CONTAINER ===== */
+
+.slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 20px;
+    touch-action: none;
+}
+
+/* ===== TRACK ===== */
+
+.track {
+    position: relative;
+    flex: 1;
+    height: 4px;
+    background-color: var(--sg-color-bg-elevated);
+    border-radius: var(--sg-radius-full);
+    overflow: hidden;
+}
+
+/* ===== FILL ===== */
+
+.fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--sg-color-accent);
+    border-radius: var(--sg-radius-full);
+    transition: width 0.05s linear;
+}
+
+/* ===== THUMB ===== */
+
+.thumb {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+
+    background-color: white;
+    border: 2px solid var(--sg-color-accent);
+    border-radius: var(--sg-radius-full);
+    box-shadow: var(--sg-shadow-sm);
+
+    cursor: grab;
+    transform: translateX(-50%);
+
+    transition:
+        box-shadow var(--sg-duration-fast) var(--sg-ease-default),
+        transform var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+.thumb:hover {
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: var(--sg-shadow-md);
+}
+
+.thumb:active {
+    cursor: grabbing;
+    transform: translateX(-50%) scale(1.05);
+}
+
+.thumb:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--sg-color-focus-ring);
+}
+
+/* ===== SIZES ===== */
+
+.sm .track {
+    height: 2px;
+}
+
+.sm .thumb {
+    width: 12px;
+    height: 12px;
+}
+
+.lg .track {
+    height: 6px;
+}
+
+.lg .thumb {
+    width: 20px;
+    height: 20px;
+}
+
+/* ===== DISABLED ===== */
+
+.disabled {
+    opacity: var(--sg-opacity-disabled);
+    pointer-events: none;
+}
+
+.disabled .thumb {
+    cursor: not-allowed;
+}
+
+/* ===== MARKS ===== */
+
+.marks {
+    display: flex;
+    justify-content: space-between;
+    padding-top: var(--sg-space-2);
+}
+
+.mark {
+    font-size: var(--sg-font-size-xs);
+    color: var(--sg-color-text-muted);
+}
+
+/* ===== RANGE SLIDER ===== */
+
+.rangeThumbStart {
+    z-index: 2;
+}
+
+.rangeThumbEnd {
+    z-index: 1;
+}

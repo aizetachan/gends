@@ -1,0 +1,215 @@
+/* =====================================================
+   Input Component Styles
+   ===================================================== */
+
+/* ===== WRAPPER ===== */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sg-space-1);
+    width: 100%;
+}
+
+/* ===== LABEL ===== */
+.label {
+    font-size: var(--sg-font-size-sm);
+    font-weight: var(--sg-font-weight-medium);
+    color: var(--sg-color-text-primary);
+}
+
+.required::after {
+    content: ' *';
+    color: var(--sg-color-error);
+}
+
+/* ===== INPUT CONTAINER ===== */
+.inputContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* ===== INPUT ===== */
+.input {
+    width: 100%;
+    font-family: var(--sg-font-family);
+    background-color: var(--sg-color-bg-secondary);
+    color: var(--sg-color-text-primary);
+    border: 1px solid var(--sg-color-border-default);
+    border-radius: var(--sg-radius-lg);
+
+    transition:
+        border-color var(--sg-duration-base) var(--sg-ease-default),
+        box-shadow var(--sg-duration-base) var(--sg-ease-default),
+        background-color var(--sg-duration-base) var(--sg-ease-default);
+
+    outline: none;
+}
+
+.input::placeholder {
+    color: var(--sg-color-text-muted);
+}
+
+/* Focus */
+.input:focus {
+    border-color: var(--sg-color-border-focus);
+    box-shadow: 0 0 0 3px var(--sg-color-focus-ring);
+}
+
+/* Hover */
+.input:hover:not(:focus):not(:disabled) {
+    border-color: var(--sg-color-border-hover);
+}
+
+/* Disabled */
+.input:disabled {
+    opacity: var(--sg-opacity-disabled);
+    cursor: not-allowed;
+    background-color: var(--sg-color-disabled-bg);
+}
+
+/* Readonly */
+.input:read-only {
+    background-color: var(--sg-color-bg-tertiary);
+    cursor: default;
+}
+
+/* With icons - Size specific padding */
+/* Small */
+.sm .input.hasLeftIcon {
+    padding-left: calc(var(--sg-space-2) + 14px + var(--sg-space-2));
+}
+
+.sm .input.hasRightIcon {
+    padding-right: calc(var(--sg-space-2) + 14px + var(--sg-space-2));
+}
+
+/* Medium */
+.md .input.hasLeftIcon {
+    padding-left: calc(var(--sg-space-3) + 16px + var(--sg-space-2));
+}
+
+.md .input.hasRightIcon {
+    padding-right: calc(var(--sg-space-3) + 16px + var(--sg-space-2));
+}
+
+/* Large */
+.lg .input.hasLeftIcon {
+    padding-left: calc(var(--sg-space-4) + 18px + var(--sg-space-2));
+}
+
+.lg .input.hasRightIcon {
+    padding-right: calc(var(--sg-space-4) + 18px + var(--sg-space-2));
+}
+
+/* ===== STATES ===== */
+
+.error .input {
+    border-color: var(--sg-color-error);
+}
+
+.error .input:focus {
+    border-color: var(--sg-color-error);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.success .input {
+    border-color: var(--sg-color-success);
+}
+
+.success .input:focus {
+    border-color: var(--sg-color-success);
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+}
+
+.warning .input {
+    border-color: var(--sg-color-warning);
+}
+
+.warning .input:focus {
+    border-color: var(--sg-color-warning);
+    box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.2);
+}
+
+/* ===== SIZES ===== */
+
+.sm .input {
+    height: 32px;
+    padding: 0 var(--sg-space-2);
+    font-size: var(--sg-font-size-xs);
+}
+
+.md .input {
+    height: 40px;
+    padding: 0 var(--sg-space-3);
+    font-size: var(--sg-font-size-sm);
+}
+
+.lg .input {
+    height: 48px;
+    padding: 0 var(--sg-space-4);
+    font-size: var(--sg-font-size-base);
+}
+
+/* ===== ICONS ===== */
+
+.leftIcon,
+.rightIcon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sg-color-text-muted);
+    pointer-events: none;
+}
+
+.leftIcon {
+    left: var(--sg-space-3);
+}
+
+.rightIcon {
+    right: var(--sg-space-3);
+}
+
+.sm .leftIcon,
+.sm .rightIcon {
+    width: 14px;
+    height: 14px;
+}
+
+.md .leftIcon,
+.md .rightIcon {
+    width: 16px;
+    height: 16px;
+}
+
+.lg .leftIcon,
+.lg .rightIcon {
+    width: 18px;
+    height: 18px;
+}
+
+/* ===== HELPER TEXT ===== */
+
+.helperText {
+    font-size: var(--sg-font-size-xs);
+    color: var(--sg-color-text-muted);
+}
+
+.error .helperText {
+    color: var(--sg-color-error-text);
+}
+
+.success .helperText {
+    color: var(--sg-color-success-text);
+}
+
+.warning .helperText {
+    color: var(--sg-color-warning-text);
+}
+
+/* ===== FULL WIDTH ===== */
+
+.fullWidth {
+    width: 100%;
+}

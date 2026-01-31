@@ -1,0 +1,207 @@
+/* =====================================================
+   FileCard Component Styles
+   ===================================================== */
+
+.fileCard {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--sg-color-bg-secondary);
+    border: 1px solid var(--sg-color-border-default);
+    border-radius: var(--sg-radius-xl);
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition:
+        border-color var(--sg-duration-fast) var(--sg-ease-default),
+        box-shadow var(--sg-duration-fast) var(--sg-ease-default),
+        transform var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+.fileCard:hover {
+    border-color: var(--sg-color-border-hover);
+    box-shadow: var(--sg-shadow-md);
+}
+
+.fileCard:focus-visible {
+    outline: none;
+    border-color: var(--sg-color-border-focus);
+    box-shadow: 0 0 0 3px var(--sg-color-focus-ring);
+}
+
+/* Selected state */
+.selected {
+    border-color: var(--sg-color-accent);
+    box-shadow: 0 0 0 2px var(--sg-color-accent);
+}
+
+/* ===== THUMBNAIL ===== */
+
+.thumbnail {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background-color: var(--sg-color-bg-tertiary);
+    overflow: hidden;
+}
+
+.thumbnailImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnailPlaceholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: var(--sg-color-text-muted);
+}
+
+.thumbnailPlaceholder svg {
+    width: 40px;
+    height: 40px;
+}
+
+/* ===== BADGE ===== */
+
+.badge {
+    position: absolute;
+    top: var(--sg-space-2);
+    left: var(--sg-space-2);
+
+    padding: var(--sg-space-0-5) var(--sg-space-2);
+
+    font-size: var(--sg-font-size-xs);
+    font-weight: var(--sg-font-weight-medium);
+
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border-radius: var(--sg-radius-full);
+
+    backdrop-filter: blur(4px);
+}
+
+/* ===== MENU BUTTON ===== */
+
+.menuButton {
+    position: absolute;
+    top: var(--sg-space-2);
+    right: var(--sg-space-2);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+    border-radius: var(--sg-radius-md);
+    color: white;
+    cursor: pointer;
+
+    opacity: 0;
+    backdrop-filter: blur(4px);
+
+    transition:
+        opacity var(--sg-duration-fast) var(--sg-ease-default),
+        background-color var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+.fileCard:hover .menuButton {
+    opacity: 1;
+}
+
+.menuButton:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* ===== INFO ===== */
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sg-space-1);
+    padding: var(--sg-space-3);
+}
+
+.name {
+    font-size: var(--sg-font-size-sm);
+    font-weight: var(--sg-font-weight-medium);
+    color: var(--sg-color-text-primary);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    gap: var(--sg-space-2);
+
+    font-size: var(--sg-font-size-xs);
+    color: var(--sg-color-text-muted);
+}
+
+.metaDot {
+    width: 3px;
+    height: 3px;
+    background-color: var(--sg-color-text-muted);
+    border-radius: var(--sg-radius-full);
+}
+
+/* ===== SIZES ===== */
+
+.sm {
+    max-width: 160px;
+}
+
+.sm .info {
+    padding: var(--sg-space-2);
+}
+
+.sm .name {
+    font-size: var(--sg-font-size-xs);
+}
+
+.md {
+    max-width: 200px;
+}
+
+.lg {
+    max-width: 280px;
+}
+
+.lg .name {
+    font-size: var(--sg-font-size-base);
+}
+
+/* ===== LIST VIEW ===== */
+
+.listView {
+    flex-direction: row;
+    align-items: center;
+    max-width: none;
+}
+
+.listView .thumbnail {
+    width: 48px;
+    height: 48px;
+    aspect-ratio: 1;
+    flex-shrink: 0;
+    border-radius: var(--sg-radius-lg);
+}
+
+.listView .info {
+    flex: 1;
+    min-width: 0;
+}
+
+.listView .menuButton {
+    position: static;
+    opacity: 0;
+}

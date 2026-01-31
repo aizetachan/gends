@@ -1,0 +1,140 @@
+/* =====================================================
+   IconButton Component Styles
+   ===================================================== */
+
+.iconButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    cursor: pointer;
+
+    transition:
+        background-color var(--sg-duration-base) var(--sg-ease-default),
+        color var(--sg-duration-base) var(--sg-ease-default),
+        box-shadow var(--sg-duration-base) var(--sg-ease-default);
+
+    outline: none;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.iconButton:focus-visible {
+    box-shadow: 0 0 0 3px var(--sg-color-focus-ring);
+}
+
+/* ===== DISABLED ===== */
+.iconButton:disabled,
+.iconButton.disabled {
+    opacity: var(--sg-opacity-disabled);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ===== SHAPES ===== */
+.circular {
+    border-radius: var(--sg-radius-full);
+}
+
+.square {
+    border-radius: var(--sg-radius-lg);
+}
+
+/* ===== VARIANTS ===== */
+
+/* Default */
+.default {
+    background-color: transparent;
+    color: var(--sg-color-text-secondary);
+}
+
+.default:hover:not(:disabled) {
+    background-color: var(--sg-color-hover);
+    color: var(--sg-color-text-primary);
+}
+
+.default:active:not(:disabled) {
+    background-color: var(--sg-color-active);
+}
+
+/* Ghost */
+.ghost {
+    background-color: transparent;
+    color: var(--sg-color-text-primary);
+}
+
+.ghost:hover:not(:disabled) {
+    background-color: var(--sg-color-hover);
+}
+
+.ghost:active:not(:disabled) {
+    background-color: var(--sg-color-active);
+}
+
+/* Filled */
+.filled {
+    background-color: var(--sg-color-bg-elevated);
+    color: var(--sg-color-text-primary);
+}
+
+.filled:hover:not(:disabled) {
+    background-color: var(--sg-color-active);
+}
+
+/* Danger */
+.danger {
+    background-color: transparent;
+    color: var(--sg-color-text-secondary);
+}
+
+.danger:hover:not(:disabled) {
+    background-color: var(--sg-color-error-bg);
+    color: var(--sg-color-error-text);
+}
+
+.danger:active:not(:disabled) {
+    background-color: rgba(239, 68, 68, 0.2);
+}
+
+/* ===== SIZES ===== */
+
+.xs {
+    width: 24px;
+    height: 24px;
+}
+
+.xs svg {
+    width: 14px;
+    height: 14px;
+}
+
+.sm {
+    width: 32px;
+    height: 32px;
+}
+
+.sm svg {
+    width: 16px;
+    height: 16px;
+}
+
+.md {
+    width: 40px;
+    height: 40px;
+}
+
+.md svg {
+    width: 20px;
+    height: 20px;
+}
+
+.lg {
+    width: 48px;
+    height: 48px;
+}
+
+.lg svg {
+    width: 24px;
+    height: 24px;
+}

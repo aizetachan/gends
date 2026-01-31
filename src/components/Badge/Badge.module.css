@@ -1,0 +1,131 @@
+/* =====================================================
+   Badge Component Styles
+   ===================================================== */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sg-space-1);
+
+    font-family: var(--sg-font-family);
+    font-weight: var(--sg-font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    white-space: nowrap;
+
+    border-radius: var(--sg-radius-base);
+}
+
+/* ===== VARIANTS ===== */
+
+.default {
+    background-color: var(--sg-color-bg-elevated);
+    color: var(--sg-color-text-primary);
+}
+
+.success {
+    background-color: var(--sg-color-success-bg);
+    color: var(--sg-color-success-text);
+}
+
+.error {
+    background-color: var(--sg-color-error-bg);
+    color: var(--sg-color-error-text);
+}
+
+.warning {
+    background-color: var(--sg-color-warning-bg);
+    color: var(--sg-color-warning-text);
+}
+
+.info {
+    background-color: var(--sg-color-info-bg);
+    color: var(--sg-color-info-text);
+}
+
+/* ===== OUTLINED STYLE ===== */
+
+.outlined {
+    background-color: transparent;
+}
+
+.outlined.default {
+    border: 1px solid var(--sg-color-border-default);
+    color: var(--sg-color-text-secondary);
+}
+
+.outlined.success {
+    border: 1px solid var(--sg-color-success-border);
+}
+
+.outlined.error {
+    border: 1px solid var(--sg-color-error-border);
+}
+
+.outlined.warning {
+    border: 1px solid var(--sg-color-warning-border);
+}
+
+.outlined.info {
+    border: 1px solid var(--sg-color-info-border);
+}
+
+/* ===== SIZES ===== */
+
+.sm {
+    height: 20px;
+    padding: 0 var(--sg-space-1-5);
+    font-size: 9px;
+}
+
+.md {
+    height: 24px;
+    padding: 0 var(--sg-space-2);
+    font-size: var(--sg-font-size-xs);
+}
+
+.lg {
+    height: 28px;
+    padding: 0 var(--sg-space-2-5);
+    font-size: var(--sg-font-size-sm);
+}
+
+/* ===== DOT INDICATOR ===== */
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--sg-radius-full);
+    background-color: currentColor;
+}
+
+/* ===== REMOVABLE ===== */
+
+.removeButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    margin-left: var(--sg-space-0-5);
+    margin-right: calc(var(--sg-space-1) * -1);
+
+    background: none;
+    border: none;
+    border-radius: var(--sg-radius-full);
+    color: inherit;
+    opacity: 0.7;
+    cursor: pointer;
+
+    transition: opacity var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+.removeButton:hover {
+    opacity: 1;
+}
+
+.removeButton svg {
+    width: 10px;
+    height: 10px;
+}

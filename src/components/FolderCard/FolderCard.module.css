@@ -1,0 +1,216 @@
+/* =====================================================
+   FolderCard Component Styles
+   ===================================================== */
+
+.folderCard {
+    display: flex;
+    align-items: center;
+    gap: var(--sg-space-3);
+
+    padding: var(--sg-space-3) var(--sg-space-4);
+
+    background-color: var(--sg-color-bg-secondary);
+    border: 1px solid var(--sg-color-border-default);
+    border-radius: var(--sg-radius-xl);
+
+    cursor: pointer;
+
+    transition:
+        border-color var(--sg-duration-fast) var(--sg-ease-default),
+        box-shadow var(--sg-duration-fast) var(--sg-ease-default),
+        background-color var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+.folderCard:hover {
+    border-color: var(--sg-color-border-hover);
+    background-color: var(--sg-color-bg-elevated);
+}
+
+.folderCard:focus-visible {
+    outline: none;
+    border-color: var(--sg-color-border-focus);
+    box-shadow: 0 0 0 3px var(--sg-color-focus-ring);
+}
+
+.selected {
+    border-color: var(--sg-color-accent);
+    box-shadow: 0 0 0 2px var(--sg-color-accent);
+}
+
+/* ===== ICON ===== */
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+
+    background-color: var(--sg-color-bg-tertiary);
+    border-radius: var(--sg-radius-lg);
+    color: var(--sg-color-accent);
+}
+
+.icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Colored folders */
+.iconBlue {
+    color: #3b82f6;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.iconGreen {
+    color: #22c55e;
+    background-color: rgba(34, 197, 94, 0.1);
+}
+
+.iconPurple {
+    color: #8b5cf6;
+    background-color: rgba(139, 92, 246, 0.1);
+}
+
+.iconOrange {
+    color: #f97316;
+    background-color: rgba(249, 115, 22, 0.1);
+}
+
+.iconRed {
+    color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+.iconYellow {
+    color: #eab308;
+    background-color: rgba(234, 179, 8, 0.1);
+}
+
+.iconPink {
+    color: #ec4899;
+    background-color: rgba(236, 72, 153, 0.1);
+}
+
+/* ===== INFO ===== */
+
+.info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sg-space-0-5);
+}
+
+.name {
+    font-size: var(--sg-font-size-sm);
+    font-weight: var(--sg-font-weight-medium);
+    color: var(--sg-color-text-primary);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.meta {
+    font-size: var(--sg-font-size-xs);
+    color: var(--sg-color-text-muted);
+}
+
+/* ===== MENU ===== */
+
+.menuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+
+    background: transparent;
+    border: none;
+    border-radius: var(--sg-radius-md);
+    color: var(--sg-color-text-muted);
+    cursor: pointer;
+
+    opacity: 0;
+
+    transition:
+        opacity var(--sg-duration-fast) var(--sg-ease-default),
+        background-color var(--sg-duration-fast) var(--sg-ease-default),
+        color var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+.folderCard:hover .menuButton {
+    opacity: 1;
+}
+
+.menuButton:hover {
+    background-color: var(--sg-color-hover);
+    color: var(--sg-color-text-primary);
+}
+
+/* ===== SIZES ===== */
+
+.sm {
+    padding: var(--sg-space-2) var(--sg-space-3);
+}
+
+.sm .icon {
+    width: 32px;
+    height: 32px;
+}
+
+.sm .icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.lg {
+    padding: var(--sg-space-4);
+}
+
+.lg .icon {
+    width: 48px;
+    height: 48px;
+}
+
+.lg .name {
+    font-size: var(--sg-font-size-base);
+}
+
+/* ===== GRID VIEW ===== */
+
+.gridView {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--sg-space-4);
+    max-width: 160px;
+}
+
+.gridView .icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: var(--sg-space-2);
+}
+
+.gridView .icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.gridView .info {
+    align-items: center;
+}
+
+.gridView .menuButton {
+    position: absolute;
+    top: var(--sg-space-2);
+    right: var(--sg-space-2);
+}
+
+.gridViewWrapper {
+    position: relative;
+}

@@ -1,0 +1,235 @@
+/* =====================================================
+   ColorPicker Component Styles
+   ===================================================== */
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sg-space-2);
+}
+
+.label {
+    font-size: var(--sg-font-size-sm);
+    font-weight: var(--sg-font-weight-medium);
+    color: var(--sg-color-text-primary);
+}
+
+/* ===== TRIGGER ===== */
+
+.trigger {
+    display: flex;
+    align-items: center;
+    gap: var(--sg-space-2);
+
+    padding: var(--sg-space-1-5) var(--sg-space-2);
+
+    background-color: var(--sg-color-bg-secondary);
+    border: 1px solid var(--sg-color-border-default);
+    border-radius: var(--sg-radius-lg);
+
+    cursor: pointer;
+
+    transition: border-color var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+.trigger:hover {
+    border-color: var(--sg-color-border-hover);
+}
+
+.trigger:focus {
+    outline: none;
+    border-color: var(--sg-color-border-focus);
+    box-shadow: 0 0 0 3px var(--sg-color-focus-ring);
+}
+
+/* ===== COLOR SWATCH ===== */
+
+.swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: var(--sg-radius-md);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.swatchSmall {
+    width: 20px;
+    height: 20px;
+}
+
+.swatchLarge {
+    width: 32px;
+    height: 32px;
+}
+
+/* ===== COLOR VALUE ===== */
+
+.colorValue {
+    font-size: var(--sg-font-size-xs);
+    font-family: var(--sg-font-mono, monospace);
+    color: var(--sg-color-text-secondary);
+    text-transform: uppercase;
+}
+
+/* ===== PICKER DROPDOWN ===== */
+
+.picker {
+    position: absolute;
+    z-index: var(--sg-z-dropdown, 40);
+
+    margin-top: var(--sg-space-1);
+    padding: var(--sg-space-3);
+
+    background-color: var(--sg-color-bg-secondary);
+    border: 1px solid var(--sg-color-border-default);
+    border-radius: var(--sg-radius-xl);
+    box-shadow: var(--sg-shadow-lg);
+
+    min-width: 240px;
+}
+
+/* ===== SATURATION BOX ===== */
+
+.saturationBox {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    border-radius: var(--sg-radius-lg);
+    overflow: hidden;
+    cursor: crosshair;
+}
+
+.saturationGradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, white, transparent);
+}
+
+.lightnessGradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, black, transparent);
+}
+
+.saturationHandle {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+
+    border: 2px solid white;
+    border-radius: var(--sg-radius-full);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), var(--sg-shadow-sm);
+
+    pointer-events: none;
+}
+
+/* ===== HUE SLIDER ===== */
+
+.hueSlider {
+    position: relative;
+    width: 100%;
+    height: 12px;
+    margin-top: var(--sg-space-3);
+
+    border-radius: var(--sg-radius-full);
+    background: linear-gradient(to right,
+            #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+
+    cursor: pointer;
+}
+
+.hueHandle {
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    margin-left: -8px;
+
+    background: white;
+    border: 2px solid white;
+    border-radius: var(--sg-radius-full);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), var(--sg-shadow-sm);
+
+    pointer-events: none;
+}
+
+/* ===== ALPHA SLIDER ===== */
+
+.alphaSlider {
+    position: relative;
+    width: 100%;
+    height: 12px;
+    margin-top: var(--sg-space-2);
+
+    border-radius: var(--sg-radius-full);
+    background-image:
+        linear-gradient(45deg, #ccc 25%, transparent 25%),
+        linear-gradient(-45deg, #ccc 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #ccc 75%),
+        linear-gradient(-45deg, transparent 75%, #ccc 75%);
+    background-size: 8px 8px;
+    background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.alphaGradient {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--sg-radius-full);
+}
+
+/* ===== PRESETS ===== */
+
+.presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sg-space-1);
+    margin-top: var(--sg-space-3);
+    padding-top: var(--sg-space-3);
+    border-top: 1px solid var(--sg-color-border-default);
+}
+
+.presetSwatch {
+    width: 24px;
+    height: 24px;
+    border-radius: var(--sg-radius-md);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
+    transition: transform var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+.presetSwatch:hover {
+    transform: scale(1.1);
+}
+
+/* ===== INPUT ===== */
+
+.inputRow {
+    display: flex;
+    gap: var(--sg-space-2);
+    margin-top: var(--sg-space-3);
+}
+
+.hexInput {
+    flex: 1;
+    padding: var(--sg-space-1-5) var(--sg-space-2);
+
+    font-size: var(--sg-font-size-xs);
+    font-family: var(--sg-font-mono, monospace);
+    text-transform: uppercase;
+
+    background-color: var(--sg-color-bg-tertiary);
+    color: var(--sg-color-text-primary);
+    border: 1px solid var(--sg-color-border-default);
+    border-radius: var(--sg-radius-md);
+}
+
+.hexInput:focus {
+    outline: none;
+    border-color: var(--sg-color-border-focus);
+}

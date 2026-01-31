@@ -1,0 +1,101 @@
+/* =====================================================
+   EmptyState Component Styles
+   ===================================================== */
+
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--sg-space-8);
+    text-align: center;
+}
+
+/* ===== SIZES ===== */
+
+.sm {
+    padding: var(--sg-space-4);
+}
+
+.md {
+    padding: var(--sg-space-8);
+}
+
+.lg {
+    padding: var(--sg-space-12);
+}
+
+/* ===== ICON ===== */
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: var(--sg-space-4);
+
+    background-color: var(--sg-color-bg-elevated);
+    border-radius: var(--sg-radius-full);
+    color: var(--sg-color-text-muted);
+}
+
+.sm .icon {
+    width: 48px;
+    height: 48px;
+}
+
+.lg .icon {
+    width: 80px;
+    height: 80px;
+}
+
+.icon svg {
+    width: 50%;
+    height: 50%;
+}
+
+/* ===== TITLE ===== */
+
+.title {
+    font-size: var(--sg-font-size-base);
+    font-weight: var(--sg-font-weight-semibold);
+    color: var(--sg-color-text-primary);
+    margin: 0 0 var(--sg-space-2);
+}
+
+.sm .title {
+    font-size: var(--sg-font-size-sm);
+}
+
+.lg .title {
+    font-size: var(--sg-font-size-lg);
+}
+
+/* ===== DESCRIPTION ===== */
+
+.description {
+    font-size: var(--sg-font-size-sm);
+    color: var(--sg-color-text-secondary);
+    margin: 0;
+    max-width: 320px;
+    line-height: var(--sg-line-height-normal);
+}
+
+.sm .description {
+    font-size: var(--sg-font-size-xs);
+    max-width: 240px;
+}
+
+/* ===== ACTIONS ===== */
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: var(--sg-space-3);
+    margin-top: var(--sg-space-6);
+}
+
+.sm .actions {
+    margin-top: var(--sg-space-4);
+}

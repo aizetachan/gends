@@ -1,0 +1,114 @@
+/* =====================================================
+   Tooltip Component Styles
+   ===================================================== */
+
+.tooltipWrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    position: absolute;
+    z-index: var(--sg-z-tooltip, 60);
+
+    padding: var(--sg-space-1-5) var(--sg-space-2);
+
+    font-size: var(--sg-font-size-xs);
+    font-weight: var(--sg-font-weight-medium);
+    line-height: var(--sg-line-height-tight);
+    white-space: nowrap;
+
+    background-color: var(--sg-color-bg-tooltip, #18181b);
+    color: var(--sg-color-text-tooltip, #fafafa);
+    border-radius: var(--sg-radius-md);
+    box-shadow: var(--sg-shadow-md);
+
+    pointer-events: none;
+
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity var(--sg-duration-fast) var(--sg-ease-default),
+        visibility var(--sg-duration-fast) var(--sg-ease-default);
+}
+
+.tooltipWrapper:hover .tooltip,
+.tooltipWrapper:focus-within .tooltip,
+.tooltipVisible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== POSITIONS ===== */
+
+.top {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+}
+
+.bottom {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px;
+}
+
+.left {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 8px;
+}
+
+.right {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 8px;
+}
+
+/* ===== ARROW ===== */
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    border: 6px solid transparent;
+}
+
+.top::after {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-color: var(--sg-color-bg-tooltip, #18181b);
+}
+
+.bottom::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: var(--sg-color-bg-tooltip, #18181b);
+}
+
+.left::after {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left-color: var(--sg-color-bg-tooltip, #18181b);
+}
+
+.right::after {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right-color: var(--sg-color-bg-tooltip, #18181b);
+}
+
+/* ===== MULTILINE ===== */
+
+.multiline {
+    white-space: normal;
+    max-width: 250px;
+    text-align: center;
+}
