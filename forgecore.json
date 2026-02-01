@@ -1,5 +1,4 @@
 {
-    "$schema": "https://ui-forge.dev/forgecore.schema.json",
     "name": "gends",
     "version": "1.0.0",
     "description": "GenDS - StudioGen Design System",
@@ -42,14 +41,35 @@
             "styles": "src/components/AlertDialog/AlertDialog.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "defaultProps": {
+                "isOpen": true,
+                "title": "Confirm Action",
+                "description": "Are you sure you want to proceed?",
+                "confirmText": "Confirm",
+                "cancelText": "Cancel"
+            }
         },
         "Avatar": {
             "entry": "src/components/Avatar/Avatar.tsx",
             "styles": "src/components/Avatar/Avatar.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "variants": [
+                {
+                    "prop": "size",
+                    "values": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ]
+                }
+            ],
+            "defaultProps": {
+                "name": "John Doe",
+                "size": "md"
+            }
         },
         "Badge": {
             "entry": "src/components/Badge/Badge.tsx",
@@ -282,7 +302,24 @@
             "styles": "src/components/Slider/Slider.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "variants": [
+                {
+                    "prop": "size",
+                    "values": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ]
+                }
+            ],
+            "defaultProps": {
+                "min": 0,
+                "max": 100,
+                "value": 50,
+                "label": "Volume",
+                "showValue": true
+            }
         },
         "Spinner": {
             "entry": "src/components/Spinner/Spinner.tsx",
