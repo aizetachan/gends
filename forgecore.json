@@ -1,0 +1,363 @@
+{
+    "$schema": "https://ui-forge.dev/forgecore.schema.json",
+    "name": "gends",
+    "version": "1.0.0",
+    "description": "GenDS - StudioGen Design System",
+    "preview": {
+        "mode": "esbuild",
+        "theme": "dark"
+    },
+    "aliases": {
+        "@": "src",
+        "@/utils": "src/utils",
+        "@/components": "src/components",
+        "@/styles": "src/styles",
+        "@/types": "src/types",
+        "@/hooks": "src/hooks"
+    },
+    "utilities": {
+        "cn": {
+            "path": "src/utils/cn.ts",
+            "export": "cn"
+        }
+    },
+    "tokens": {
+        "css": [
+            "src/styles/globals.css",
+            "src/styles/themes/dark.css",
+            "src/styles/themes/light.css"
+        ],
+        "categories": {
+            "spacing": "--sg-space-",
+            "typography": "--sg-font-",
+            "radius": "--sg-radius-",
+            "shadows": "--sg-shadow-",
+            "colors": "--sg-color-",
+            "transitions": "--sg-transition-"
+        }
+    },
+    "components": {
+        "AlertDialog": {
+            "entry": "src/components/AlertDialog/AlertDialog.tsx",
+            "styles": "src/components/AlertDialog/AlertDialog.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "Avatar": {
+            "entry": "src/components/Avatar/Avatar.tsx",
+            "styles": "src/components/Avatar/Avatar.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "Badge": {
+            "entry": "src/components/Badge/Badge.tsx",
+            "styles": "src/components/Badge/Badge.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ],
+            "variants": [
+                {
+                    "prop": "variant",
+                    "values": [
+                        "default",
+                        "success",
+                        "warning",
+                        "error",
+                        "info"
+                    ]
+                },
+                {
+                    "prop": "size",
+                    "values": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ]
+                }
+            ]
+        },
+        "Breadcrumb": {
+            "entry": "src/components/Breadcrumb/Breadcrumb.tsx",
+            "styles": "src/components/Breadcrumb/Breadcrumb.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "Button": {
+            "entry": "src/components/Button/Button.tsx",
+            "styles": "src/components/Button/Button.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ],
+            "variants": [
+                {
+                    "prop": "variant",
+                    "values": [
+                        "primary",
+                        "secondary",
+                        "ghost",
+                        "danger",
+                        "success"
+                    ]
+                },
+                {
+                    "prop": "size",
+                    "values": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ]
+                }
+            ],
+            "defaultProps": {
+                "variant": "primary",
+                "size": "md",
+                "children": "Button"
+            }
+        },
+        "Card": {
+            "entry": "src/components/Card/Card.tsx",
+            "styles": "src/components/Card/Card.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ],
+            "variants": [
+                {
+                    "prop": "variant",
+                    "values": [
+                        "default",
+                        "elevated",
+                        "outlined"
+                    ]
+                }
+            ]
+        },
+        "Checkbox": {
+            "entry": "src/components/Checkbox/Checkbox.tsx",
+            "styles": "src/components/Checkbox/Checkbox.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "ColorPicker": {
+            "entry": "src/components/ColorPicker/ColorPicker.tsx",
+            "styles": "src/components/ColorPicker/ColorPicker.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "Divider": {
+            "entry": "src/components/Divider/Divider.tsx",
+            "styles": "src/components/Divider/Divider.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "Dropdown": {
+            "entry": "src/components/Dropdown/Dropdown.tsx",
+            "styles": "src/components/Dropdown/Dropdown.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "EmptyState": {
+            "entry": "src/components/EmptyState/EmptyState.tsx",
+            "styles": "src/components/EmptyState/EmptyState.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "FileCard": {
+            "entry": "src/components/FileCard/FileCard.tsx",
+            "styles": "src/components/FileCard/FileCard.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "FolderCard": {
+            "entry": "src/components/FolderCard/FolderCard.tsx",
+            "styles": "src/components/FolderCard/FolderCard.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "IconButton": {
+            "entry": "src/components/IconButton/IconButton.tsx",
+            "styles": "src/components/IconButton/IconButton.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ],
+            "variants": [
+                {
+                    "prop": "variant",
+                    "values": [
+                        "default",
+                        "ghost",
+                        "danger"
+                    ]
+                },
+                {
+                    "prop": "size",
+                    "values": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ]
+                }
+            ]
+        },
+        "Input": {
+            "entry": "src/components/Input/Input.tsx",
+            "styles": "src/components/Input/Input.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ],
+            "variants": [
+                {
+                    "prop": "size",
+                    "values": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ]
+                }
+            ]
+        },
+        "Modal": {
+            "entry": "src/components/Modal/Modal.tsx",
+            "styles": "src/components/Modal/Modal.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ],
+            "externalDeps": [
+                "react-dom"
+            ]
+        },
+        "Panel": {
+            "entry": "src/components/Panel/Panel.tsx",
+            "styles": "src/components/Panel/Panel.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "Popover": {
+            "entry": "src/components/Popover/Popover.tsx",
+            "styles": "src/components/Popover/Popover.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "Radio": {
+            "entry": "src/components/Radio/Radio.tsx",
+            "styles": "src/components/Radio/Radio.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "Select": {
+            "entry": "src/components/Select/Select.tsx",
+            "styles": "src/components/Select/Select.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "Sidebar": {
+            "entry": "src/components/Sidebar/Sidebar.tsx",
+            "styles": "src/components/Sidebar/Sidebar.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "Skeleton": {
+            "entry": "src/components/Skeleton/Skeleton.tsx",
+            "styles": "src/components/Skeleton/Skeleton.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "Slider": {
+            "entry": "src/components/Slider/Slider.tsx",
+            "styles": "src/components/Slider/Slider.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "Spinner": {
+            "entry": "src/components/Spinner/Spinner.tsx",
+            "styles": "src/components/Spinner/Spinner.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ],
+            "variants": [
+                {
+                    "prop": "size",
+                    "values": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ]
+                }
+            ]
+        },
+        "Tabs": {
+            "entry": "src/components/Tabs/Tabs.tsx",
+            "styles": "src/components/Tabs/Tabs.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "TextArea": {
+            "entry": "src/components/TextArea/TextArea.tsx",
+            "styles": "src/components/TextArea/TextArea.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "Toast": {
+            "entry": "src/components/Toast/Toast.tsx",
+            "styles": "src/components/Toast/Toast.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ],
+            "variants": [
+                {
+                    "prop": "variant",
+                    "values": [
+                        "default",
+                        "success",
+                        "error",
+                        "warning",
+                        "info"
+                    ]
+                }
+            ]
+        },
+        "Toggle": {
+            "entry": "src/components/Toggle/Toggle.tsx",
+            "styles": "src/components/Toggle/Toggle.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "ToolBar": {
+            "entry": "src/components/ToolBar/ToolBar.tsx",
+            "styles": "src/components/ToolBar/ToolBar.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        },
+        "Tooltip": {
+            "entry": "src/components/Tooltip/Tooltip.tsx",
+            "styles": "src/components/Tooltip/Tooltip.module.css",
+            "dependencies": [
+                "src/utils/cn.ts"
+            ]
+        }
+    },
+    "icons": {
+        "library": "lucide-react",
+        "stub": true
+    }
+}
