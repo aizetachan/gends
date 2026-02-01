@@ -56,11 +56,12 @@
                 "src/utils/cn.ts"
             ],
             "defaultProps": {
-                "isOpen": true,
+                "open": true,
                 "title": "Confirm Action",
                 "description": "Are you sure you want to proceed?",
-                "confirmText": "Confirm",
-                "cancelText": "Cancel"
+                "confirmLabel": "Confirm",
+                "cancelLabel": "Cancel",
+                "variant": "danger"
             }
         },
         "Avatar": {
@@ -126,8 +127,32 @@
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "variants": [
+                {
+                    "prop": "size",
+                    "values": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ],
+                    "default": "md"
+                }
+            ],
             "defaultProps": {
-                "children": "Home / Products / Item"
+                "items": [
+                    {
+                        "label": "Home",
+                        "href": "/"
+                    },
+                    {
+                        "label": "Products",
+                        "href": "/products"
+                    },
+                    {
+                        "label": "Item"
+                    }
+                ],
+                "size": "md"
             }
         },
         "Button": {
@@ -370,7 +395,7 @@
                 "react-dom"
             ],
             "defaultProps": {
-                "isOpen": true,
+                "open": true,
                 "title": "Modal Title",
                 "children": "Modal content goes here"
             }
@@ -404,8 +429,10 @@
                 }
             ],
             "defaultProps": {
-                "children": "Trigger",
-                "content": "Popover content"
+                "open": true,
+                "title": "Popover Title",
+                "children": "Popover content",
+                "position": "bottom"
             }
         },
         "Radio": {
@@ -689,9 +716,11 @@
                     "default": "top"
                 }
             ],
+            "preview": {
+                "forceVisible": true
+            },
             "defaultProps": {
                 "content": "Helpful tooltip",
-                "children": "Hover me",
                 "position": "top"
             }
         }
