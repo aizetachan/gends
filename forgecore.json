@@ -17,9 +17,7 @@
         "@": "src",
         "@/utils": "src/utils",
         "@/components": "src/components",
-        "@/styles": "src/styles",
-        "@/types": "src/types",
-        "@/hooks": "src/hooks"
+        "@/styles": "src/styles"
     },
     "utilities": {
         "cn": {
@@ -35,14 +33,12 @@
             "src/styles/themes/light.css"
         ],
         "categories": {
+            "colors": "--sg-color-",
             "spacing": "--sg-space-",
             "typography": "--sg-font-",
             "radius": "--sg-radius-",
-            "shadows": "--sg-shadow-",
-            "colors": "--sg-color-",
-            "transitions": "--sg-transition-"
-        },
-        "aliases": true
+            "shadows": "--sg-shadow-"
+        }
     },
     "assets": {
         "icons": {
@@ -79,8 +75,10 @@
                     "values": [
                         "sm",
                         "md",
-                        "lg"
-                    ]
+                        "lg",
+                        "xl"
+                    ],
+                    "default": "md"
                 }
             ],
             "defaultProps": {
@@ -100,10 +98,11 @@
                     "values": [
                         "default",
                         "success",
-                        "warning",
                         "error",
+                        "warning",
                         "info"
-                    ]
+                    ],
+                    "default": "default"
                 },
                 {
                     "prop": "size",
@@ -111,16 +110,25 @@
                         "sm",
                         "md",
                         "lg"
-                    ]
+                    ],
+                    "default": "md"
                 }
-            ]
+            ],
+            "defaultProps": {
+                "children": "Badge",
+                "variant": "default",
+                "size": "md"
+            }
         },
         "Breadcrumb": {
             "entry": "src/components/Breadcrumb/Breadcrumb.tsx",
             "styles": "src/components/Breadcrumb/Breadcrumb.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "defaultProps": {
+                "children": "Home / Products / Item"
+            }
         },
         "Button": {
             "entry": "src/components/Button/Button.tsx",
@@ -137,7 +145,8 @@
                         "ghost",
                         "danger",
                         "success"
-                    ]
+                    ],
+                    "default": "primary"
                 },
                 {
                     "prop": "size",
@@ -145,57 +154,14 @@
                         "sm",
                         "md",
                         "lg"
-                    ]
-                }
-            ],
-            "propDefs": [
-                {
-                    "name": "children",
-                    "type": "string",
-                    "defaultValue": "Button"
-                },
-                {
-                    "name": "variant",
-                    "type": "enum",
-                    "options": [
-                        "primary",
-                        "secondary",
-                        "ghost",
-                        "danger",
-                        "success"
                     ],
-                    "defaultValue": "primary"
-                },
-                {
-                    "name": "size",
-                    "type": "enum",
-                    "options": [
-                        "sm",
-                        "md",
-                        "lg"
-                    ],
-                    "defaultValue": "md"
-                },
-                {
-                    "name": "disabled",
-                    "type": "boolean",
-                    "defaultValue": false
-                },
-                {
-                    "name": "fullWidth",
-                    "type": "boolean",
-                    "defaultValue": false
-                },
-                {
-                    "name": "isLoading",
-                    "type": "boolean",
-                    "defaultValue": false
+                    "default": "md"
                 }
             ],
             "defaultProps": {
+                "children": "Button",
                 "variant": "primary",
-                "size": "md",
-                "children": "Button"
+                "size": "md"
             }
         },
         "Card": {
@@ -212,7 +178,8 @@
                         "elevated",
                         "outlined",
                         "ghost"
-                    ]
+                    ],
+                    "default": "default"
                 },
                 {
                     "prop": "padding",
@@ -221,47 +188,14 @@
                         "sm",
                         "md",
                         "lg"
-                    ]
-                }
-            ],
-            "propDefs": [
-                {
-                    "name": "variant",
-                    "type": "enum",
-                    "options": [
-                        "default",
-                        "elevated",
-                        "outlined",
-                        "ghost"
                     ],
-                    "defaultValue": "default"
-                },
-                {
-                    "name": "padding",
-                    "type": "enum",
-                    "options": [
-                        "none",
-                        "sm",
-                        "md",
-                        "lg"
-                    ],
-                    "defaultValue": "md"
-                },
-                {
-                    "name": "interactive",
-                    "type": "boolean",
-                    "defaultValue": false
-                },
-                {
-                    "name": "selected",
-                    "type": "boolean",
-                    "defaultValue": false
+                    "default": "md"
                 }
             ],
             "defaultProps": {
+                "children": "Card Content",
                 "variant": "default",
-                "padding": "md",
-                "children": "Card Content"
+                "padding": "md"
             }
         },
         "Checkbox": {
@@ -269,49 +203,96 @@
             "styles": "src/components/Checkbox/Checkbox.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "variants": [
+                {
+                    "prop": "size",
+                    "values": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ],
+                    "default": "md"
+                }
+            ],
+            "defaultProps": {
+                "label": "Accept terms",
+                "size": "md"
+            }
         },
         "ColorPicker": {
             "entry": "src/components/ColorPicker/ColorPicker.tsx",
             "styles": "src/components/ColorPicker/ColorPicker.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "defaultProps": {
+                "value": "#6366f1"
+            }
         },
         "Divider": {
             "entry": "src/components/Divider/Divider.tsx",
             "styles": "src/components/Divider/Divider.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "variants": [
+                {
+                    "prop": "orientation",
+                    "values": [
+                        "horizontal",
+                        "vertical"
+                    ],
+                    "default": "horizontal"
+                }
+            ],
+            "defaultProps": {
+                "orientation": "horizontal"
+            }
         },
         "Dropdown": {
             "entry": "src/components/Dropdown/Dropdown.tsx",
             "styles": "src/components/Dropdown/Dropdown.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "defaultProps": {
+                "trigger": "Menu",
+                "children": "Menu Content"
+            }
         },
         "EmptyState": {
             "entry": "src/components/EmptyState/EmptyState.tsx",
             "styles": "src/components/EmptyState/EmptyState.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "defaultProps": {
+                "title": "No items found",
+                "description": "Try adjusting your search"
+            }
         },
         "FileCard": {
             "entry": "src/components/FileCard/FileCard.tsx",
             "styles": "src/components/FileCard/FileCard.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "defaultProps": {
+                "name": "document.pdf",
+                "size": "2.4 MB"
+            }
         },
         "FolderCard": {
             "entry": "src/components/FolderCard/FolderCard.tsx",
             "styles": "src/components/FolderCard/FolderCard.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "defaultProps": {
+                "name": "My Folder",
+                "itemCount": 12
+            }
         },
         "IconButton": {
             "entry": "src/components/IconButton/IconButton.tsx",
@@ -326,7 +307,8 @@
                         "default",
                         "ghost",
                         "danger"
-                    ]
+                    ],
+                    "default": "default"
                 },
                 {
                     "prop": "size",
@@ -334,9 +316,15 @@
                         "sm",
                         "md",
                         "lg"
-                    ]
+                    ],
+                    "default": "md"
                 }
-            ]
+            ],
+            "defaultProps": {
+                "variant": "default",
+                "size": "md",
+                "aria-label": "Icon button"
+            }
         },
         "Input": {
             "entry": "src/components/Input/Input.tsx",
@@ -352,7 +340,8 @@
                         "error",
                         "success",
                         "warning"
-                    ]
+                    ],
+                    "default": "default"
                 },
                 {
                     "prop": "size",
@@ -360,49 +349,8 @@
                         "sm",
                         "md",
                         "lg"
-                    ]
-                }
-            ],
-            "propDefs": [
-                {
-                    "name": "label",
-                    "type": "string",
-                    "defaultValue": "Label"
-                },
-                {
-                    "name": "placeholder",
-                    "type": "string",
-                    "defaultValue": "Enter text..."
-                },
-                {
-                    "name": "state",
-                    "type": "enum",
-                    "options": [
-                        "default",
-                        "error",
-                        "success",
-                        "warning"
                     ],
-                    "defaultValue": "default"
-                },
-                {
-                    "name": "size",
-                    "type": "enum",
-                    "options": [
-                        "sm",
-                        "md",
-                        "lg"
-                    ],
-                    "defaultValue": "md"
-                },
-                {
-                    "name": "helperText",
-                    "type": "string"
-                },
-                {
-                    "name": "disabled",
-                    "type": "boolean",
-                    "defaultValue": false
+                    "default": "md"
                 }
             ],
             "defaultProps": {
@@ -420,49 +368,137 @@
             ],
             "externalDeps": [
                 "react-dom"
-            ]
+            ],
+            "defaultProps": {
+                "isOpen": true,
+                "title": "Modal Title",
+                "children": "Modal content goes here"
+            }
         },
         "Panel": {
             "entry": "src/components/Panel/Panel.tsx",
             "styles": "src/components/Panel/Panel.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "defaultProps": {
+                "children": "Panel Content"
+            }
         },
         "Popover": {
             "entry": "src/components/Popover/Popover.tsx",
             "styles": "src/components/Popover/Popover.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "variants": [
+                {
+                    "prop": "position",
+                    "values": [
+                        "top",
+                        "bottom",
+                        "left",
+                        "right"
+                    ],
+                    "default": "bottom"
+                }
+            ],
+            "defaultProps": {
+                "children": "Trigger",
+                "content": "Popover content"
+            }
         },
         "Radio": {
             "entry": "src/components/Radio/Radio.tsx",
             "styles": "src/components/Radio/Radio.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "variants": [
+                {
+                    "prop": "size",
+                    "values": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ],
+                    "default": "md"
+                }
+            ],
+            "defaultProps": {
+                "label": "Option",
+                "size": "md"
+            }
         },
         "Select": {
             "entry": "src/components/Select/Select.tsx",
             "styles": "src/components/Select/Select.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "variants": [
+                {
+                    "prop": "size",
+                    "values": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ],
+                    "default": "md"
+                }
+            ],
+            "defaultProps": {
+                "label": "Select",
+                "placeholder": "Choose an option",
+                "options": [
+                    {
+                        "value": "1",
+                        "label": "Option 1"
+                    },
+                    {
+                        "value": "2",
+                        "label": "Option 2"
+                    },
+                    {
+                        "value": "3",
+                        "label": "Option 3"
+                    }
+                ],
+                "size": "md"
+            }
         },
         "Sidebar": {
             "entry": "src/components/Sidebar/Sidebar.tsx",
             "styles": "src/components/Sidebar/Sidebar.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "defaultProps": {
+                "children": "Sidebar Content"
+            }
         },
         "Skeleton": {
             "entry": "src/components/Skeleton/Skeleton.tsx",
             "styles": "src/components/Skeleton/Skeleton.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "variants": [
+                {
+                    "prop": "variant",
+                    "values": [
+                        "text",
+                        "circular",
+                        "rectangular"
+                    ],
+                    "default": "text"
+                }
+            ],
+            "defaultProps": {
+                "variant": "text",
+                "width": 200,
+                "height": 20
+            }
         },
         "Slider": {
             "entry": "src/components/Slider/Slider.tsx",
@@ -477,54 +513,8 @@
                         "sm",
                         "md",
                         "lg"
-                    ]
-                }
-            ],
-            "propDefs": [
-                {
-                    "name": "value",
-                    "type": "number",
-                    "defaultValue": 50
-                },
-                {
-                    "name": "min",
-                    "type": "number",
-                    "defaultValue": 0
-                },
-                {
-                    "name": "max",
-                    "type": "number",
-                    "defaultValue": 100
-                },
-                {
-                    "name": "step",
-                    "type": "number",
-                    "defaultValue": 1
-                },
-                {
-                    "name": "label",
-                    "type": "string",
-                    "defaultValue": "Volume"
-                },
-                {
-                    "name": "showValue",
-                    "type": "boolean",
-                    "defaultValue": true
-                },
-                {
-                    "name": "size",
-                    "type": "enum",
-                    "options": [
-                        "sm",
-                        "md",
-                        "lg"
                     ],
-                    "defaultValue": "md"
-                },
-                {
-                    "name": "disabled",
-                    "type": "boolean",
-                    "defaultValue": false
+                    "default": "md"
                 }
             ],
             "defaultProps": {
@@ -546,26 +536,83 @@
                 {
                     "prop": "size",
                     "values": [
+                        "xs",
                         "sm",
                         "md",
-                        "lg"
-                    ]
+                        "lg",
+                        "xl"
+                    ],
+                    "default": "md"
+                },
+                {
+                    "prop": "color",
+                    "values": [
+                        "primary",
+                        "white",
+                        "current"
+                    ],
+                    "default": "primary"
                 }
-            ]
+            ],
+            "defaultProps": {
+                "size": "md",
+                "color": "primary"
+            }
         },
         "Tabs": {
             "entry": "src/components/Tabs/Tabs.tsx",
             "styles": "src/components/Tabs/Tabs.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "variants": [
+                {
+                    "prop": "variant",
+                    "values": [
+                        "default",
+                        "pills",
+                        "underline"
+                    ],
+                    "default": "default"
+                }
+            ],
+            "defaultProps": {
+                "variant": "default",
+                "children": "Tab Content"
+            }
         },
         "TextArea": {
             "entry": "src/components/TextArea/TextArea.tsx",
             "styles": "src/components/TextArea/TextArea.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "variants": [
+                {
+                    "prop": "state",
+                    "values": [
+                        "default",
+                        "error",
+                        "success"
+                    ],
+                    "default": "default"
+                },
+                {
+                    "prop": "size",
+                    "values": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ],
+                    "default": "md"
+                }
+            ],
+            "defaultProps": {
+                "label": "Description",
+                "placeholder": "Enter description...",
+                "state": "default",
+                "size": "md"
+            }
         },
         "Toast": {
             "entry": "src/components/Toast/Toast.tsx",
@@ -582,34 +629,71 @@
                         "error",
                         "warning",
                         "info"
-                    ]
+                    ],
+                    "default": "default"
                 }
-            ]
+            ],
+            "defaultProps": {
+                "title": "Notification",
+                "description": "This is a toast message",
+                "variant": "default"
+            }
         },
         "Toggle": {
             "entry": "src/components/Toggle/Toggle.tsx",
             "styles": "src/components/Toggle/Toggle.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "variants": [
+                {
+                    "prop": "size",
+                    "values": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ],
+                    "default": "md"
+                }
+            ],
+            "defaultProps": {
+                "label": "Dark mode",
+                "size": "md"
+            }
         },
         "ToolBar": {
             "entry": "src/components/ToolBar/ToolBar.tsx",
             "styles": "src/components/ToolBar/ToolBar.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "defaultProps": {
+                "children": "Toolbar Content"
+            }
         },
         "Tooltip": {
             "entry": "src/components/Tooltip/Tooltip.tsx",
             "styles": "src/components/Tooltip/Tooltip.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
-            ]
+            ],
+            "variants": [
+                {
+                    "prop": "position",
+                    "values": [
+                        "top",
+                        "bottom",
+                        "left",
+                        "right"
+                    ],
+                    "default": "top"
+                }
+            ],
+            "defaultProps": {
+                "content": "Helpful tooltip",
+                "children": "Hover me",
+                "position": "top"
+            }
         }
-    },
-    "icons": {
-        "library": "lucide-react",
-        "stub": true
     }
 }
