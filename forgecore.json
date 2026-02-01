@@ -55,6 +55,21 @@
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "variants": [
+                {
+                    "prop": "variant",
+                    "values": [
+                        "default",
+                        "danger",
+                        "warning"
+                    ],
+                    "default": "danger"
+                }
+            ],
+            "callbacks": [
+                "onConfirm",
+                "onCancel"
+            ],
             "defaultProps": {
                 "open": true,
                 "title": "Confirm Action",
@@ -183,6 +198,9 @@
                     "default": "md"
                 }
             ],
+            "callbacks": [
+                "onClick"
+            ],
             "defaultProps": {
                 "children": "Button",
                 "variant": "primary",
@@ -240,9 +258,13 @@
                     "default": "md"
                 }
             ],
+            "callbacks": [
+                "onChange"
+            ],
             "defaultProps": {
                 "label": "Accept terms",
-                "size": "md"
+                "size": "md",
+                "checked": false
             }
         },
         "ColorPicker": {
@@ -250,6 +272,9 @@
             "styles": "src/components/ColorPicker/ColorPicker.module.css",
             "dependencies": [
                 "src/utils/cn.ts"
+            ],
+            "callbacks": [
+                "onChange"
             ],
             "defaultProps": {
                 "value": "#6366f1"
@@ -281,8 +306,12 @@
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "elementProps": [
+                "trigger"
+            ],
             "defaultProps": {
-                "trigger": "Menu",
+                "open": true,
+                "trigger": "<button>Menu</button>",
                 "children": "Menu Content"
             }
         },
@@ -303,9 +332,31 @@
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "variants": [
+                {
+                    "prop": "cardSize",
+                    "values": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ],
+                    "default": "md"
+                },
+                {
+                    "prop": "view",
+                    "values": [
+                        "grid",
+                        "list"
+                    ],
+                    "default": "grid"
+                }
+            ],
             "defaultProps": {
                 "name": "document.pdf",
-                "size": "2.4 MB"
+                "size": "2.4 MB",
+                "fileType": "pdf",
+                "cardSize": "md",
+                "view": "grid"
             }
         },
         "FolderCard": {
@@ -314,9 +365,45 @@
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "variants": [
+                {
+                    "prop": "size",
+                    "values": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ],
+                    "default": "md"
+                },
+                {
+                    "prop": "view",
+                    "values": [
+                        "list",
+                        "grid"
+                    ],
+                    "default": "list"
+                },
+                {
+                    "prop": "color",
+                    "values": [
+                        "default",
+                        "blue",
+                        "green",
+                        "purple",
+                        "orange",
+                        "red",
+                        "yellow",
+                        "pink"
+                    ],
+                    "default": "default"
+                }
+            ],
             "defaultProps": {
                 "name": "My Folder",
-                "itemCount": 12
+                "itemCount": 12,
+                "size": "md",
+                "view": "list",
+                "color": "default"
             }
         },
         "IconButton": {
@@ -344,6 +431,12 @@
                     ],
                     "default": "md"
                 }
+            ],
+            "elementProps": [
+                "icon"
+            ],
+            "callbacks": [
+                "onClick"
             ],
             "defaultProps": {
                 "variant": "default",
@@ -378,6 +471,11 @@
                     "default": "md"
                 }
             ],
+            "callbacks": [
+                "onChange",
+                "onBlur",
+                "onFocus"
+            ],
             "defaultProps": {
                 "label": "Label",
                 "placeholder": "Enter text...",
@@ -393,6 +491,9 @@
             ],
             "externalDeps": [
                 "react-dom"
+            ],
+            "callbacks": [
+                "onClose"
             ],
             "defaultProps": {
                 "open": true,
@@ -428,11 +529,17 @@
                     "default": "bottom"
                 }
             ],
+            "elementProps": [
+                "trigger"
+            ],
             "defaultProps": {
                 "open": true,
+                "trigger": "<button>Open Popover</button>",
                 "title": "Popover Title",
                 "children": "Popover content",
-                "position": "bottom"
+                "position": "bottom",
+                "showArrow": true,
+                "showCloseButton": true
             }
         },
         "Radio": {
@@ -452,9 +559,13 @@
                     "default": "md"
                 }
             ],
+            "callbacks": [
+                "onChange"
+            ],
             "defaultProps": {
                 "label": "Option",
-                "size": "md"
+                "size": "md",
+                "checked": false
             }
         },
         "Select": {
@@ -473,6 +584,9 @@
                     ],
                     "default": "md"
                 }
+            ],
+            "callbacks": [
+                "onChange"
             ],
             "defaultProps": {
                 "label": "Select",
@@ -544,6 +658,9 @@
                     "default": "md"
                 }
             ],
+            "callbacks": [
+                "onChange"
+            ],
             "defaultProps": {
                 "min": 0,
                 "max": 100,
@@ -603,6 +720,9 @@
                     "default": "default"
                 }
             ],
+            "callbacks": [
+                "onChange"
+            ],
             "defaultProps": {
                 "variant": "default",
                 "children": "Tab Content"
@@ -634,6 +754,11 @@
                     "default": "md"
                 }
             ],
+            "callbacks": [
+                "onChange",
+                "onBlur",
+                "onFocus"
+            ],
             "defaultProps": {
                 "label": "Description",
                 "placeholder": "Enter description...",
@@ -660,6 +785,9 @@
                     "default": "default"
                 }
             ],
+            "callbacks": [
+                "onClose"
+            ],
             "defaultProps": {
                 "title": "Notification",
                 "description": "This is a toast message",
@@ -683,9 +811,13 @@
                     "default": "md"
                 }
             ],
+            "callbacks": [
+                "onChange"
+            ],
             "defaultProps": {
                 "label": "Dark mode",
-                "size": "md"
+                "size": "md",
+                "checked": false
             }
         },
         "ToolBar": {
@@ -716,11 +848,15 @@
                     "default": "top"
                 }
             ],
+            "elementProps": [
+                "children"
+            ],
             "preview": {
                 "forceVisible": true
             },
             "defaultProps": {
                 "content": "Helpful tooltip",
+                "children": "<button>Hover me</button>",
                 "position": "top"
             }
         }
