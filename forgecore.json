@@ -2,9 +2,16 @@
     "name": "gends",
     "version": "1.0.0",
     "description": "GenDS - StudioGen Design System",
+    "metadata": {
+        "author": "StudioGen Team",
+        "repoURL": "https://github.com/studiogen/gends",
+        "license": "MIT",
+        "framework": "react"
+    },
     "preview": {
         "mode": "esbuild",
-        "theme": "dark"
+        "theme": "dark",
+        "background": "#09090b"
     },
     "aliases": {
         "@": "src",
@@ -17,7 +24,8 @@
     "utilities": {
         "cn": {
             "path": "src/utils/cn.ts",
-            "export": "cn"
+            "export": "cn",
+            "stub": "function cn() { return Array.from(arguments).filter(Boolean).join(' '); }"
         }
     },
     "tokens": {
@@ -33,7 +41,16 @@
             "shadows": "--sg-shadow-",
             "colors": "--sg-color-",
             "transitions": "--sg-transition-"
-        }
+        },
+        "aliases": true
+    },
+    "assets": {
+        "icons": {
+            "library": "lucide-react",
+            "stub": true
+        },
+        "images": "public/images",
+        "fonts": "public/fonts"
     },
     "components": {
         "AlertDialog": {
@@ -131,6 +148,50 @@
                     ]
                 }
             ],
+            "propDefs": [
+                {
+                    "name": "children",
+                    "type": "string",
+                    "defaultValue": "Button"
+                },
+                {
+                    "name": "variant",
+                    "type": "enum",
+                    "options": [
+                        "primary",
+                        "secondary",
+                        "ghost",
+                        "danger",
+                        "success"
+                    ],
+                    "defaultValue": "primary"
+                },
+                {
+                    "name": "size",
+                    "type": "enum",
+                    "options": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ],
+                    "defaultValue": "md"
+                },
+                {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "defaultValue": false
+                },
+                {
+                    "name": "fullWidth",
+                    "type": "boolean",
+                    "defaultValue": false
+                },
+                {
+                    "name": "isLoading",
+                    "type": "boolean",
+                    "defaultValue": false
+                }
+            ],
             "defaultProps": {
                 "variant": "primary",
                 "size": "md",
@@ -149,10 +210,59 @@
                     "values": [
                         "default",
                         "elevated",
-                        "outlined"
+                        "outlined",
+                        "ghost"
+                    ]
+                },
+                {
+                    "prop": "padding",
+                    "values": [
+                        "none",
+                        "sm",
+                        "md",
+                        "lg"
                     ]
                 }
-            ]
+            ],
+            "propDefs": [
+                {
+                    "name": "variant",
+                    "type": "enum",
+                    "options": [
+                        "default",
+                        "elevated",
+                        "outlined",
+                        "ghost"
+                    ],
+                    "defaultValue": "default"
+                },
+                {
+                    "name": "padding",
+                    "type": "enum",
+                    "options": [
+                        "none",
+                        "sm",
+                        "md",
+                        "lg"
+                    ],
+                    "defaultValue": "md"
+                },
+                {
+                    "name": "interactive",
+                    "type": "boolean",
+                    "defaultValue": false
+                },
+                {
+                    "name": "selected",
+                    "type": "boolean",
+                    "defaultValue": false
+                }
+            ],
+            "defaultProps": {
+                "variant": "default",
+                "padding": "md",
+                "children": "Card Content"
+            }
         },
         "Checkbox": {
             "entry": "src/components/Checkbox/Checkbox.tsx",
@@ -236,6 +346,15 @@
             ],
             "variants": [
                 {
+                    "prop": "state",
+                    "values": [
+                        "default",
+                        "error",
+                        "success",
+                        "warning"
+                    ]
+                },
+                {
                     "prop": "size",
                     "values": [
                         "sm",
@@ -243,7 +362,55 @@
                         "lg"
                     ]
                 }
-            ]
+            ],
+            "propDefs": [
+                {
+                    "name": "label",
+                    "type": "string",
+                    "defaultValue": "Label"
+                },
+                {
+                    "name": "placeholder",
+                    "type": "string",
+                    "defaultValue": "Enter text..."
+                },
+                {
+                    "name": "state",
+                    "type": "enum",
+                    "options": [
+                        "default",
+                        "error",
+                        "success",
+                        "warning"
+                    ],
+                    "defaultValue": "default"
+                },
+                {
+                    "name": "size",
+                    "type": "enum",
+                    "options": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ],
+                    "defaultValue": "md"
+                },
+                {
+                    "name": "helperText",
+                    "type": "string"
+                },
+                {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "defaultValue": false
+                }
+            ],
+            "defaultProps": {
+                "label": "Label",
+                "placeholder": "Enter text...",
+                "state": "default",
+                "size": "md"
+            }
         },
         "Modal": {
             "entry": "src/components/Modal/Modal.tsx",
@@ -313,12 +480,60 @@
                     ]
                 }
             ],
+            "propDefs": [
+                {
+                    "name": "value",
+                    "type": "number",
+                    "defaultValue": 50
+                },
+                {
+                    "name": "min",
+                    "type": "number",
+                    "defaultValue": 0
+                },
+                {
+                    "name": "max",
+                    "type": "number",
+                    "defaultValue": 100
+                },
+                {
+                    "name": "step",
+                    "type": "number",
+                    "defaultValue": 1
+                },
+                {
+                    "name": "label",
+                    "type": "string",
+                    "defaultValue": "Volume"
+                },
+                {
+                    "name": "showValue",
+                    "type": "boolean",
+                    "defaultValue": true
+                },
+                {
+                    "name": "size",
+                    "type": "enum",
+                    "options": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ],
+                    "defaultValue": "md"
+                },
+                {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "defaultValue": false
+                }
+            ],
             "defaultProps": {
                 "min": 0,
                 "max": 100,
                 "value": 50,
                 "label": "Volume",
-                "showValue": true
+                "showValue": true,
+                "size": "md"
             }
         },
         "Spinner": {
