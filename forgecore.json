@@ -1,32 +1,112 @@
 {
+    "$schema": "https://forgecore.dev/schemas/forgecore.v1.json",
+    "forgecoreVersion": "1.0.0",
     "name": "gends",
-    "version": "1.0.0",
-    "description": "GenDS - StudioGen Design System",
-    "metadata": {
-        "author": "StudioGen Team",
-        "repoURL": "https://github.com/studiogen/gends",
+    "package": {
+        "displayName": "GenDS - StudioGen Design System",
+        "npmName": "gends",
+        "version": "1.0.0",
         "license": "MIT",
-        "framework": "react"
+        "repoURL": "https://github.com/aizetachan/gends.git",
+        "homepage": "",
+        "author": "StudioGen Team"
+    },
+    "metadata": {
+        "framework": "react",
+        "language": "typescript",
+        "moduleFormat": "esm",
+        "monorepo": false,
+        "entryStrategy": "source",
+        "notes": [
+            "Este forgecore describe el repositorio a nivel source: entradas TSX, CSS Modules, tokens CSS, assets, y harness de interacción para preview sin Storybook."
+        ]
     },
     "preview": {
         "mode": "esbuild",
         "theme": "dark",
-        "background": "#09090b"
+        "background": "#09090b",
+        "viewport": {
+            "width": 1200,
+            "height": 800,
+            "deviceScaleFactor": 1
+        },
+        "behavior": {
+            "disableAnimations": false,
+            "preferReducedMotion": true,
+            "logEvents": true,
+            "captureConsole": true
+        }
     },
-    "aliases": {
-        "@": "src",
-        "@/utils": "src/utils",
-        "@/components": "src/components",
-        "@/styles": "src/styles"
+    "runtime": {
+        "react": {
+            "version": "18.x"
+        },
+        "bundler": {
+            "type": "esbuild",
+            "platform": "browser",
+            "jsx": "automatic",
+            "tsconfigPath": "tsconfig.json",
+            "define": {
+                "process.env.NODE_ENV": "\"production\""
+            }
+        },
+        "aliases": {
+            "@": "src",
+            "@/utils": "src/utils",
+            "@/components": "src/components",
+            "@/styles": "src/styles"
+        },
+        "globalCss": [
+            "src/styles/globals.css",
+            "src/styles/themes/dark.css",
+            "src/styles/themes/light.css"
+        ],
+        "theme": {
+            "strategy": "attribute",
+            "attribute": "data-theme",
+            "values": [
+                "dark",
+                "light"
+            ],
+            "default": "dark",
+            "applyTo": "documentElement"
+        },
+        "mount": {
+            "rootId": "forge-root",
+            "wrapper": {
+                "element": "div",
+                "props": {
+                    "style": "min-height:100vh; padding:24px; box-sizing:border-box;"
+                }
+            }
+        },
+        "portals": {
+            "enabled": true,
+            "rootId": "forge-portal-root",
+            "attachTo": "body",
+            "createIfMissing": true
+        },
+        "stubs": {
+            "icons": {
+                "library": "lucide-react",
+                "enabled": true,
+                "strategy": "component",
+                "fallback": "span"
+            }
+        }
     },
     "utilities": {
         "cn": {
             "path": "src/utils/cn.ts",
-            "export": "cn",
-            "stub": "function cn() { return Array.from(arguments).filter(Boolean).join(' '); }"
+            "export": {
+                "type": "named",
+                "name": "cn"
+            },
+            "stub": "function cn(){return Array.from(arguments).filter(Boolean).join(' ')}"
         }
     },
     "tokens": {
+        "type": "css-variables",
         "css": [
             "src/styles/globals.css",
             "src/styles/themes/dark.css",
@@ -41,35 +121,36 @@
         }
     },
     "assets": {
+        "images": "public/images",
+        "fonts": "public/fonts",
         "icons": {
             "library": "lucide-react",
             "stub": true
-        },
-        "images": "public/images",
-        "fonts": "public/fonts"
+        }
     },
     "components": {
         "AlertDialog": {
             "entry": "src/components/AlertDialog/AlertDialog.tsx",
-            "styles": "src/components/AlertDialog/AlertDialog.module.css",
+            "export": {
+                "type": "named",
+                "name": "AlertDialog"
+            },
+            "styles": [
+                "src/components/AlertDialog/AlertDialog.module.css"
+            ],
             "dependencies": [
-                "src/utils/cn.ts"
+                "src/utils/cn.ts",
+                "src/components/Button/Button.tsx"
             ],
-            "variants": [
-                {
-                    "prop": "variant",
-                    "values": [
-                        "default",
-                        "danger",
-                        "warning"
-                    ],
-                    "default": "danger"
-                }
-            ],
-            "callbacks": [
-                "onConfirm",
-                "onCancel"
-            ],
+            "type": "overlay",
+            "model": {
+                "pattern": "controlledBoolean",
+                "events": [
+                    "onOpenChange",
+                    "onConfirm",
+                    "onCancel"
+                ]
+            },
             "defaultProps": {
                 "open": true,
                 "title": "Confirm Action",
@@ -77,14 +158,32 @@
                 "confirmLabel": "Confirm",
                 "cancelLabel": "Cancel",
                 "variant": "danger"
+            },
+            "forge": {
+                "requiresPortal": true,
+                "slots": {
+                    "trigger": {
+                        "kind": "Button",
+                        "props": {
+                            "children": "Open dialog"
+                        }
+                    }
+                }
             }
         },
         "Avatar": {
             "entry": "src/components/Avatar/Avatar.tsx",
-            "styles": "src/components/Avatar/Avatar.module.css",
+            "export": {
+                "type": "named",
+                "name": "Avatar"
+            },
+            "styles": [
+                "src/components/Avatar/Avatar.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "display",
             "variants": [
                 {
                     "prop": "size",
@@ -104,10 +203,17 @@
         },
         "Badge": {
             "entry": "src/components/Badge/Badge.tsx",
-            "styles": "src/components/Badge/Badge.module.css",
+            "export": {
+                "type": "named",
+                "name": "Badge"
+            },
+            "styles": [
+                "src/components/Badge/Badge.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "display",
             "variants": [
                 {
                     "prop": "variant",
@@ -138,10 +244,17 @@
         },
         "Breadcrumb": {
             "entry": "src/components/Breadcrumb/Breadcrumb.tsx",
-            "styles": "src/components/Breadcrumb/Breadcrumb.module.css",
+            "export": {
+                "type": "named",
+                "name": "Breadcrumb"
+            },
+            "styles": [
+                "src/components/Breadcrumb/Breadcrumb.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "navigation",
             "variants": [
                 {
                     "prop": "size",
@@ -172,10 +285,17 @@
         },
         "Button": {
             "entry": "src/components/Button/Button.tsx",
-            "styles": "src/components/Button/Button.module.css",
+            "export": {
+                "type": "named",
+                "name": "Button"
+            },
+            "styles": [
+                "src/components/Button/Button.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "input",
             "variants": [
                 {
                     "prop": "variant",
@@ -198,9 +318,6 @@
                     "default": "md"
                 }
             ],
-            "callbacks": [
-                "onClick"
-            ],
             "defaultProps": {
                 "children": "Button",
                 "variant": "primary",
@@ -209,10 +326,17 @@
         },
         "Card": {
             "entry": "src/components/Card/Card.tsx",
-            "styles": "src/components/Card/Card.module.css",
+            "export": {
+                "type": "named",
+                "name": "Card"
+            },
+            "styles": [
+                "src/components/Card/Card.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "layout",
             "variants": [
                 {
                     "prop": "variant",
@@ -243,10 +367,23 @@
         },
         "Checkbox": {
             "entry": "src/components/Checkbox/Checkbox.tsx",
-            "styles": "src/components/Checkbox/Checkbox.module.css",
+            "export": {
+                "type": "named",
+                "name": "Checkbox"
+            },
+            "styles": [
+                "src/components/Checkbox/Checkbox.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "input",
+            "model": {
+                "pattern": "controlledValue",
+                "events": [
+                    "onChange"
+                ]
+            },
             "variants": [
                 {
                     "prop": "size",
@@ -258,34 +395,47 @@
                     "default": "md"
                 }
             ],
-            "callbacks": [
-                "onChange"
-            ],
             "defaultProps": {
                 "label": "Accept terms",
-                "size": "md",
-                "checked": false
+                "size": "md"
             }
         },
         "ColorPicker": {
             "entry": "src/components/ColorPicker/ColorPicker.tsx",
-            "styles": "src/components/ColorPicker/ColorPicker.module.css",
+            "export": {
+                "type": "named",
+                "name": "ColorPicker"
+            },
+            "styles": [
+                "src/components/ColorPicker/ColorPicker.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
-            "callbacks": [
-                "onChange"
-            ],
+            "type": "input",
+            "model": {
+                "pattern": "controlledValue",
+                "events": [
+                    "onChange"
+                ]
+            },
             "defaultProps": {
                 "value": "#6366f1"
             }
         },
         "Divider": {
             "entry": "src/components/Divider/Divider.tsx",
-            "styles": "src/components/Divider/Divider.module.css",
+            "export": {
+                "type": "named",
+                "name": "Divider"
+            },
+            "styles": [
+                "src/components/Divider/Divider.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "layout",
             "variants": [
                 {
                     "prop": "orientation",
@@ -302,25 +452,46 @@
         },
         "Dropdown": {
             "entry": "src/components/Dropdown/Dropdown.tsx",
-            "styles": "src/components/Dropdown/Dropdown.module.css",
+            "export": {
+                "type": "named",
+                "name": "Dropdown"
+            },
+            "styles": [
+                "src/components/Dropdown/Dropdown.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
-            "elementProps": [
-                "trigger"
-            ],
+            "type": "overlay",
+            "forge": {
+                "requiresPortal": true,
+                "slots": {
+                    "trigger": {
+                        "kind": "Button",
+                        "props": {
+                            "children": "Menu"
+                        }
+                    }
+                }
+            },
             "defaultProps": {
                 "open": true,
-                "trigger": "<button>Menu</button>",
                 "children": "Menu Content"
             }
         },
         "EmptyState": {
             "entry": "src/components/EmptyState/EmptyState.tsx",
-            "styles": "src/components/EmptyState/EmptyState.module.css",
+            "export": {
+                "type": "named",
+                "name": "EmptyState"
+            },
+            "styles": [
+                "src/components/EmptyState/EmptyState.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "display",
             "defaultProps": {
                 "title": "No items found",
                 "description": "Try adjusting your search"
@@ -328,90 +499,53 @@
         },
         "FileCard": {
             "entry": "src/components/FileCard/FileCard.tsx",
-            "styles": "src/components/FileCard/FileCard.module.css",
+            "export": {
+                "type": "named",
+                "name": "FileCard"
+            },
+            "styles": [
+                "src/components/FileCard/FileCard.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
-            "variants": [
-                {
-                    "prop": "cardSize",
-                    "values": [
-                        "sm",
-                        "md",
-                        "lg"
-                    ],
-                    "default": "md"
-                },
-                {
-                    "prop": "view",
-                    "values": [
-                        "grid",
-                        "list"
-                    ],
-                    "default": "grid"
-                }
-            ],
+            "type": "display",
             "defaultProps": {
                 "name": "document.pdf",
-                "size": "2.4 MB",
-                "fileType": "pdf",
-                "cardSize": "md",
-                "view": "grid"
+                "size": "2.4 MB"
             }
         },
         "FolderCard": {
             "entry": "src/components/FolderCard/FolderCard.tsx",
-            "styles": "src/components/FolderCard/FolderCard.module.css",
+            "export": {
+                "type": "named",
+                "name": "FolderCard"
+            },
+            "styles": [
+                "src/components/FolderCard/FolderCard.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
-            "variants": [
-                {
-                    "prop": "size",
-                    "values": [
-                        "sm",
-                        "md",
-                        "lg"
-                    ],
-                    "default": "md"
-                },
-                {
-                    "prop": "view",
-                    "values": [
-                        "list",
-                        "grid"
-                    ],
-                    "default": "list"
-                },
-                {
-                    "prop": "color",
-                    "values": [
-                        "default",
-                        "blue",
-                        "green",
-                        "purple",
-                        "orange",
-                        "red",
-                        "yellow",
-                        "pink"
-                    ],
-                    "default": "default"
-                }
-            ],
+            "type": "display",
             "defaultProps": {
                 "name": "My Folder",
-                "itemCount": 12,
-                "size": "md",
-                "view": "list",
-                "color": "default"
+                "itemCount": 12
             }
         },
         "IconButton": {
             "entry": "src/components/IconButton/IconButton.tsx",
-            "styles": "src/components/IconButton/IconButton.module.css",
+            "export": {
+                "type": "named",
+                "name": "IconButton"
+            },
+            "styles": [
+                "src/components/IconButton/IconButton.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "input",
             "variants": [
                 {
                     "prop": "variant",
@@ -432,12 +566,6 @@
                     "default": "md"
                 }
             ],
-            "elementProps": [
-                "icon"
-            ],
-            "callbacks": [
-                "onClick"
-            ],
             "defaultProps": {
                 "variant": "default",
                 "size": "md",
@@ -446,10 +574,23 @@
         },
         "Input": {
             "entry": "src/components/Input/Input.tsx",
-            "styles": "src/components/Input/Input.module.css",
+            "export": {
+                "type": "named",
+                "name": "Input"
+            },
+            "styles": [
+                "src/components/Input/Input.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "input",
+            "model": {
+                "pattern": "controlledValue",
+                "events": [
+                    "onChange"
+                ]
+            },
             "variants": [
                 {
                     "prop": "state",
@@ -471,11 +612,6 @@
                     "default": "md"
                 }
             ],
-            "callbacks": [
-                "onChange",
-                "onBlur",
-                "onFocus"
-            ],
             "defaultProps": {
                 "label": "Label",
                 "placeholder": "Enter text...",
@@ -485,38 +621,69 @@
         },
         "Modal": {
             "entry": "src/components/Modal/Modal.tsx",
-            "styles": "src/components/Modal/Modal.module.css",
+            "export": {
+                "type": "named",
+                "name": "Modal"
+            },
+            "styles": [
+                "src/components/Modal/Modal.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
-            "externalDeps": [
-                "react-dom"
-            ],
-            "callbacks": [
-                "onClose"
-            ],
+            "type": "overlay",
+            "model": {
+                "pattern": "controlledBoolean",
+                "events": [
+                    "onOpenChange",
+                    "onClose"
+                ]
+            },
             "defaultProps": {
                 "open": true,
                 "title": "Modal Title",
                 "children": "Modal content goes here"
+            },
+            "forge": {
+                "requiresPortal": true
             }
         },
         "Panel": {
             "entry": "src/components/Panel/Panel.tsx",
-            "styles": "src/components/Panel/Panel.module.css",
+            "export": {
+                "type": "named",
+                "name": "Panel"
+            },
+            "styles": [
+                "src/components/Panel/Panel.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "layout",
             "defaultProps": {
                 "children": "Panel Content"
             }
         },
         "Popover": {
             "entry": "src/components/Popover/Popover.tsx",
-            "styles": "src/components/Popover/Popover.module.css",
+            "export": {
+                "type": "named",
+                "name": "Popover"
+            },
+            "styles": [
+                "src/components/Popover/Popover.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "overlay",
+            "model": {
+                "pattern": "controlledBoolean",
+                "events": [
+                    "onOpenChange"
+                ]
+            },
             "variants": [
                 {
                     "prop": "position",
@@ -529,25 +696,35 @@
                     "default": "bottom"
                 }
             ],
-            "elementProps": [
-                "trigger"
-            ],
             "defaultProps": {
                 "open": true,
-                "trigger": "<button>Open Popover</button>",
                 "title": "Popover Title",
                 "children": "Popover content",
-                "position": "bottom",
-                "showArrow": true,
-                "showCloseButton": true
+                "position": "bottom"
+            },
+            "forge": {
+                "requiresPortal": true
             }
         },
         "Radio": {
             "entry": "src/components/Radio/Radio.tsx",
-            "styles": "src/components/Radio/Radio.module.css",
+            "export": {
+                "type": "named",
+                "name": "Radio"
+            },
+            "styles": [
+                "src/components/Radio/Radio.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "input",
+            "model": {
+                "pattern": "controlledValue",
+                "events": [
+                    "onChange"
+                ]
+            },
             "variants": [
                 {
                     "prop": "size",
@@ -559,21 +736,30 @@
                     "default": "md"
                 }
             ],
-            "callbacks": [
-                "onChange"
-            ],
             "defaultProps": {
                 "label": "Option",
-                "size": "md",
-                "checked": false
+                "size": "md"
             }
         },
         "Select": {
             "entry": "src/components/Select/Select.tsx",
-            "styles": "src/components/Select/Select.module.css",
+            "export": {
+                "type": "named",
+                "name": "Select"
+            },
+            "styles": [
+                "src/components/Select/Select.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "input",
+            "model": {
+                "pattern": "controlledValue",
+                "events": [
+                    "onChange"
+                ]
+            },
             "variants": [
                 {
                     "prop": "size",
@@ -584,9 +770,6 @@
                     ],
                     "default": "md"
                 }
-            ],
-            "callbacks": [
-                "onChange"
             ],
             "defaultProps": {
                 "label": "Select",
@@ -610,20 +793,34 @@
         },
         "Sidebar": {
             "entry": "src/components/Sidebar/Sidebar.tsx",
-            "styles": "src/components/Sidebar/Sidebar.module.css",
+            "export": {
+                "type": "named",
+                "name": "Sidebar"
+            },
+            "styles": [
+                "src/components/Sidebar/Sidebar.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "layout",
             "defaultProps": {
                 "children": "Sidebar Content"
             }
         },
         "Skeleton": {
             "entry": "src/components/Skeleton/Skeleton.tsx",
-            "styles": "src/components/Skeleton/Skeleton.module.css",
+            "export": {
+                "type": "named",
+                "name": "Skeleton"
+            },
+            "styles": [
+                "src/components/Skeleton/Skeleton.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "display",
             "variants": [
                 {
                     "prop": "variant",
@@ -643,10 +840,23 @@
         },
         "Slider": {
             "entry": "src/components/Slider/Slider.tsx",
-            "styles": "src/components/Slider/Slider.module.css",
+            "export": {
+                "type": "named",
+                "name": "Slider"
+            },
+            "styles": [
+                "src/components/Slider/Slider.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "input",
+            "model": {
+                "pattern": "controlledValue",
+                "events": [
+                    "onChange"
+                ]
+            },
             "variants": [
                 {
                     "prop": "size",
@@ -657,9 +867,6 @@
                     ],
                     "default": "md"
                 }
-            ],
-            "callbacks": [
-                "onChange"
             ],
             "defaultProps": {
                 "min": 0,
@@ -672,10 +879,17 @@
         },
         "Spinner": {
             "entry": "src/components/Spinner/Spinner.tsx",
-            "styles": "src/components/Spinner/Spinner.module.css",
+            "export": {
+                "type": "named",
+                "name": "Spinner"
+            },
+            "styles": [
+                "src/components/Spinner/Spinner.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "display",
             "variants": [
                 {
                     "prop": "size",
@@ -705,10 +919,23 @@
         },
         "Tabs": {
             "entry": "src/components/Tabs/Tabs.tsx",
-            "styles": "src/components/Tabs/Tabs.module.css",
+            "export": {
+                "type": "named",
+                "name": "Tabs"
+            },
+            "styles": [
+                "src/components/Tabs/Tabs.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "navigation",
+            "model": {
+                "pattern": "controlledValue",
+                "events": [
+                    "onChange"
+                ]
+            },
             "variants": [
                 {
                     "prop": "variant",
@@ -720,9 +947,6 @@
                     "default": "default"
                 }
             ],
-            "callbacks": [
-                "onChange"
-            ],
             "defaultProps": {
                 "variant": "default",
                 "children": "Tab Content"
@@ -730,10 +954,23 @@
         },
         "TextArea": {
             "entry": "src/components/TextArea/TextArea.tsx",
-            "styles": "src/components/TextArea/TextArea.module.css",
+            "export": {
+                "type": "named",
+                "name": "TextArea"
+            },
+            "styles": [
+                "src/components/TextArea/TextArea.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "input",
+            "model": {
+                "pattern": "controlledValue",
+                "events": [
+                    "onChange"
+                ]
+            },
             "variants": [
                 {
                     "prop": "state",
@@ -754,11 +991,6 @@
                     "default": "md"
                 }
             ],
-            "callbacks": [
-                "onChange",
-                "onBlur",
-                "onFocus"
-            ],
             "defaultProps": {
                 "label": "Description",
                 "placeholder": "Enter description...",
@@ -768,10 +1000,24 @@
         },
         "Toast": {
             "entry": "src/components/Toast/Toast.tsx",
-            "styles": "src/components/Toast/Toast.module.css",
+            "export": {
+                "type": "named",
+                "name": "Toast"
+            },
+            "styles": [
+                "src/components/Toast/Toast.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "feedback",
+            "model": {
+                "pattern": "uncontrolled",
+                "events": [
+                    "onOpenChange",
+                    "onClose"
+                ]
+            },
             "variants": [
                 {
                     "prop": "variant",
@@ -785,21 +1031,34 @@
                     "default": "default"
                 }
             ],
-            "callbacks": [
-                "onClose"
-            ],
             "defaultProps": {
                 "title": "Notification",
                 "description": "This is a toast message",
                 "variant": "default"
+            },
+            "preview": {
+                "disableAnimations": true
             }
         },
         "Toggle": {
             "entry": "src/components/Toggle/Toggle.tsx",
-            "styles": "src/components/Toggle/Toggle.module.css",
+            "export": {
+                "type": "named",
+                "name": "Toggle"
+            },
+            "styles": [
+                "src/components/Toggle/Toggle.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "input",
+            "model": {
+                "pattern": "controlledValue",
+                "events": [
+                    "onChange"
+                ]
+            },
             "variants": [
                 {
                     "prop": "size",
@@ -811,31 +1070,41 @@
                     "default": "md"
                 }
             ],
-            "callbacks": [
-                "onChange"
-            ],
             "defaultProps": {
                 "label": "Dark mode",
-                "size": "md",
-                "checked": false
+                "size": "md"
             }
         },
         "ToolBar": {
             "entry": "src/components/ToolBar/ToolBar.tsx",
-            "styles": "src/components/ToolBar/ToolBar.module.css",
+            "export": {
+                "type": "named",
+                "name": "ToolBar"
+            },
+            "styles": [
+                "src/components/ToolBar/ToolBar.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "layout",
             "defaultProps": {
                 "children": "Toolbar Content"
             }
         },
         "Tooltip": {
             "entry": "src/components/Tooltip/Tooltip.tsx",
-            "styles": "src/components/Tooltip/Tooltip.module.css",
+            "export": {
+                "type": "named",
+                "name": "Tooltip"
+            },
+            "styles": [
+                "src/components/Tooltip/Tooltip.module.css"
+            ],
             "dependencies": [
                 "src/utils/cn.ts"
             ],
+            "type": "overlay",
             "variants": [
                 {
                     "prop": "position",
@@ -848,16 +1117,17 @@
                     "default": "top"
                 }
             ],
-            "elementProps": [
-                "children"
-            ],
             "preview": {
-                "forceVisible": true
+                "forceVisible": true,
+                "disableAnimations": true,
+                "portal": true
             },
             "defaultProps": {
                 "content": "Helpful tooltip",
-                "children": "<button>Hover me</button>",
                 "position": "top"
+            },
+            "forge": {
+                "requiresPortal": true
             }
         }
     }
