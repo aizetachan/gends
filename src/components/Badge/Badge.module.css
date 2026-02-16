@@ -15,6 +15,7 @@
     white-space: nowrap;
 
     border-radius: var(--sg-radius-base);
+    backgroundColor: #000000;
 }
 
 /* ===== VARIANTS ===== */
