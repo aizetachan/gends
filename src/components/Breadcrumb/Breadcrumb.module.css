@@ -9,6 +9,7 @@
     gap: var(--sg-space-1);
 
     font-size: var(--sg-font-size-sm);
+    width: 800px;
 }
 
 /* ===== ITEM ===== */

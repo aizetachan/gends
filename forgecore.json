@@ -280,7 +280,7 @@
                         "label": "Item"
                     }
                 ],
-                "size": "md"
+                "size": "sm"
             },
             "forge": {
                 "showcase": "<Breadcrumb size={props.size} items={[{label:'Home'},{label:'Projects'},{label:'Design System'}]} />"
@@ -323,8 +323,8 @@
             ],
             "defaultProps": {
                 "children": "Button",
-                "variant": "primary",
-                "size": "md"
+                "variant": "secondary",
+                "size": "lg"
             }
         },
         "Card": {
@@ -366,7 +366,7 @@
             "defaultProps": {
                 "children": "Card Content",
                 "variant": "default",
-                "padding": "md"
+                "padding": "none"
             },
             "forge": {
                 "showcase": "<Card variant={props.variant} padding={props.padding}><CardHeader title='Card Title' subtitle='A reusable card component' /><CardBody><p style={{color: 'var(--sg-color-text-secondary)', fontSize: '14px', margin: 0}}>This is the card body content. You can put any content here including text, images, and other components.</p></CardBody><CardFooter><Button variant='secondary' size='sm'>Cancel</Button><Button variant='primary' size='sm'>Confirm</Button></CardFooter></Card>"
@@ -467,7 +467,8 @@
                 "src/components/Dropdown/Dropdown.module.css"
             ],
             "dependencies": [
-                "src/utils/cn.ts"
+                "src/utils/cn.ts",
+                "src/components/Button/Button.tsx"
             ],
             "type": "overlay",
             "model": {
@@ -672,7 +673,8 @@
                 "src/components/Modal/Modal.module.css"
             ],
             "dependencies": [
-                "src/utils/cn.ts"
+                "src/utils/cn.ts",
+                "src/components/Button/Button.tsx"
             ],
             "type": "overlay",
             "model": {
@@ -734,7 +736,8 @@
                 "src/components/Popover/Popover.module.css"
             ],
             "dependencies": [
-                "src/utils/cn.ts"
+                "src/utils/cn.ts",
+                "src/components/Button/Button.tsx"
             ],
             "type": "overlay",
             "model": {
@@ -1007,7 +1010,7 @@
                 }
             ],
             "defaultProps": {
-                "size": "md",
+                "size": "xl",
                 "color": "primary"
             }
         },
@@ -1207,7 +1210,8 @@
                 "src/components/Tooltip/Tooltip.module.css"
             ],
             "dependencies": [
-                "src/utils/cn.ts"
+                "src/utils/cn.ts",
+                "src/components/Button/Button.tsx"
             ],
             "type": "overlay",
             "variants": [

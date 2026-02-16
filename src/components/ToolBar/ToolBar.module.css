@@ -199,3 +199,8 @@
     top: 50%;
     transform: translateY(-50%);
 }
+.toolBar {
+  paddingRight: 0px;
+  paddingLeft: 0px;
+  width: 239px;
+}

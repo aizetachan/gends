@@ -10,6 +10,8 @@
     border-radius: var(--sg-radius-xl);
 
     overflow: hidden;
+    width: 39px;
+    borderRadius: 234312px;
 }
 
 /* ===== VARIANTS ===== */

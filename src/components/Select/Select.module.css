@@ -231,3 +231,10 @@
     font-size: var(--sg-font-size-sm);
     color: var(--sg-color-text-muted);
 }
+.select {
+  borderWidth: 0px;
+  display: block;
+  flexDirection: column;
+  gap: 34px;
+  paddingTop: 30px;
+}

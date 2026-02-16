@@ -27,6 +27,12 @@
 
     outline: none;
     user-select: none;
+    width: 157px;
+    minWidth: ;
+    paddingTop: 0px;
+    borderWidth: 0px;
+    borderStyle: solid;
+    backgroundColor: pink;
 }
 
 .button:focus-visible {
