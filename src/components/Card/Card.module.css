@@ -10,12 +10,13 @@
     border-radius: var(--sg-radius-xl);
 
     overflow: hidden;
+    text-decoration: none;
 }
 
 /* ===== VARIANTS ===== */
 
 .default {
-    border: 1px solid var(--sg-color-border-default);
+    border: 1px solid #3f3f46;
 }
 
 .outlined {

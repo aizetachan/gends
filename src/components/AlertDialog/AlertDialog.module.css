@@ -112,3 +112,21 @@
     flex-direction: row;
     justify-content: flex-end;
 }
+.AlertDialog_description {
+  font-size: var(--sg-font-size-sm);
+}
+
+.alertDialog {
+  font-size: var(--sg-font-size-sm);
+  text-align: justify;
+  border: none;
+}
+
+.AlertDialog_alertDialog {
+  font-size: var(--sg-font-size-lg);
+  text-align: justify;
+}
+
+.AlertDialog_title {
+  font-size: var(----sg-font-size-4xl);
+}
