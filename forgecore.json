@@ -327,11 +327,11 @@
             "defaultProps": {
                 "children": "Click me",
                 "variant": "primary",
-                "size": "lg",
+                "size": "md",
                 "isLoading": false,
                 "iconOnly": false,
-                "leftIcon": null,
-                "fullWidth": true,
+                "leftIcon": "⬡",
+                "fullWidth": false,
                 "rightIcon": null
             }
         },
@@ -500,8 +500,9 @@
                 }
             ],
             "defaultProps": {
-                "open": true,
-                "position": "bottom-start"
+                "open": false,
+                "position": "bottom-start",
+                "trigger": null
             },
             "forge": {
                 "requiresPortal": false,
@@ -709,7 +710,7 @@
             "defaultProps": {
                 "open": true,
                 "title": "Modal Title",
-                "size": "md"
+                "size": "sm"
             },
             "forge": {
                 "requiresPortal": true,
@@ -819,7 +820,10 @@
             ],
             "defaultProps": {
                 "label": "Option",
-                "size": "md"
+                "size": "md",
+                "error": false,
+                "description": "Description text",
+                "wrapperClassName": ""
             }
         },
         "Select": {
@@ -869,7 +873,9 @@
                         "label": "Option 3"
                     }
                 ],
-                "size": "md"
+                "size": "md",
+                "disabled": false,
+                "required": true
             },
             "forge": {
                 "showcase": "<div style={{width:'280px'}}><Select label={props.label} placeholder={props.placeholder} size={props.size} options={[{value:'opt1',label:'Option 1'},{value:'opt2',label:'Option 2'},{value:'opt3',label:'Option 3'}]} /></div>"
